@@ -13,3 +13,11 @@
 .bg-b{
     background-color: #FAF0E7;
 }
+.card-header .logo-login{
+    width: 100px;
+    height: 80px;
+    text-align: center;
+}
+.card-header{
+    background-color: white!important;
+}
