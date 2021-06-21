@@ -70,6 +70,21 @@
                 <span>{{ __('Courrier') }}</span>
             </a>
         </li>
+        <!-- Nav Item - Division -->
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('division') }}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('Division') }}</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - Service -->
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('service') }}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('Service') }}</span>
+            </a>
+        </li>
 
         <!-- Nav Item - Utilisateur -->
         <li class="nav-item ">
