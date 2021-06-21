@@ -264,8 +264,10 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">yous</span>
-                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""></figure>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span>
+                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""><img src="{{ Auth::user()->photo }}" /></figure>
+                            {{-- <img src="{{ auth()->user()->photo }}" width="40" height="40"
+                                 class="rounded-circle mr-3" /> --}}
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
