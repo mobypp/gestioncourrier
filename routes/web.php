@@ -14,7 +14,6 @@ use App\Http\Controllers\RoleController;
 // Route::get('/', 'HomeController@dashboard')->name('app.dashboard');
 
 Route::get('/', [HomeController::class , 'index'])->name('app');
-Route::get('/courrier', [CourrierController::class , 'index'])->name('courrier');
 Route::get('/user', [UserController::class , 'index'])->name('user');
 Route::get('/createU', [UserController::class , 'create'])->name('createU');
 Route::post('/storeU', [UserController::class , 'store'])->name('storeU');
@@ -61,3 +60,9 @@ Route::put('/edit/{id}', [RoleController::class , 'update'])->name('edit');
 Auth::routes(['register' => true]);
 // Auth::routes();
 // $user = Auth::user();
+
+
+// Courrier et organisme
+
+Route::resource('courrier', 'CourrierController');
+Route::resource('organisme', 'CourrierController');

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Courrier extends Model
+class Organisme extends Model
 {
     protected $fillable = [
-        'id', 'titre', 'contenu', 'sens', 'objet', 'etat', 'organisme',
+        'organisme', 'localisation',
     ];
 }
