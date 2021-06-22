@@ -3,8 +3,8 @@
 @section('main-content')
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{$user = auth()->user()->photo }}</h1>
-    <img src="{{$user = auth()->user()->photo }}" />
+    {{-- <h1 class="h3 mb-4 text-gray-800">{{$user = auth()->user()->photo }}</h1> --}}
+    {{-- <img src="{{$user = auth()->user()->photo }}" /> --}}
    
     <main class="site-content">
         <div class="container" id="app">
@@ -51,11 +51,11 @@
                                     </a>
                                 </td>
                                 <td>
-                                <form action="#" method="post">
+                                <form action="{{ route('user.delete', $user->id )}}" method="post">
                                     <input type="hidden" name="_method" value="PUT">
                                     {{csrf_field()}}
                                     <button class="btn btn-danger"  
-                                            onclick="this.form.submit()" role="button" disabled >Supprimer
+                                            onclick="this.form.submit()" role="button"  >Supprimer
                                     </button> 
                                 </form>
                                 </td>

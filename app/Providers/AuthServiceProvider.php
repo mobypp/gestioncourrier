@@ -14,9 +14,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-        'App\Models\Model' => 'App\Policies\ModelPolicy',
-        'App\Models\Role' => 'App\Policies\RolePolicy',
-        'App\Models\User' => 'App\Policies\UserPolicy',
+        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Models\Role' => 'App\Policies\RolePolicy',
+        // 'App\Models\User' => 'App\Policies\UserPolicy',
     ];
   
 
@@ -29,31 +29,31 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('Access-admin', function ($user)
-	    {
-		    if($user->isAdmin()) {
-			    return true;
-		    }
-			    return false;
+        // Gate::define('Access-admin', function ($user)
+	    // {
+		//     if($user->isAdmin()) {
+		// 	    return true;
+		//     }
+		// 	    return false;
 
-	    });
+	    // });
 
-	    Gate::define('Access-service', function ($user)
-	    {
-		    if($user->isCS() || $user->isAdmin()) {
-			    return true;
-		    }
-			    return false;
+	    // Gate::define('Access-service', function ($user)
+	    // {
+		//     if($user->isCS() || $user->isAdmin()) {
+		// 	    return true;
+		//     }
+		// 	    return false;
 
-	    });
-	    Gate::define('Access-employee', function ($user)
-	    {
-		    if($user->isUF()) {
-			    return true;
-		    }
-			    return false;
+	    // });
+	    // Gate::define('Access-employee', function ($user)
+	    // {
+		//     if($user->isUF()) {
+		// 	    return true;
+		//     }
+		// 	    return false;
 
-	    });
+	    // });
 
     }
 }

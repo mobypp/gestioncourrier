@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
 {
   
-	public function __construct()
-	{
-	    $this->middleware('auth');
-	}
+	// public function __construct()
+	// {
+	//     $this->middleware('auth');
+	// }
 
     public function create()
     {
@@ -53,7 +54,8 @@ class UserController extends Controller
         if($request->hasfile('photo')) {
             $user->photo = $request->photo->store('image');
         }
-        $user->password = bcrypt($request->input('password'));
+        $user->password = Hash::make($request->input('password'));
+        // bcrypt($request->input('password'));
         $user->role_id = $request->input('role_id');
         // $user->api_token = str_random(60);
         $user->save();
@@ -73,7 +75,9 @@ class UserController extends Controller
         if($request->hasfile('photo')) {
             $user->photo = $request->photo->store('image');
         }
-        $user->password =  bcrypt($request->input('password'));
+        $user->password = Hash::make($request->input('password'));
+
+        // $user->password =  bcrypt($request->input('password'));
         $user->role_id = $request->input('role_id');
         $user->save();
         session()->flash('success', 'Utilisateur a été bien Modifier !!');
@@ -100,15 +104,19 @@ class UserController extends Controller
     // }
 
 
-    // public function delete($id)
-    // {
-    //     $user = User::find($id);
-	// 	$mytime = Carbon::now();
-	// 	if($user) {
-	// 	$user->deleted_at = $mytime;
-	// 	$user->save();
-	// 	}
+    public function delete($id)
+    {
+        $user = User::find($id);
+		// $mytime = Carbon::now();
+		// if($user) {
+		// $user->deleted_at = $mytime;
+		// $user->save();
+		// }
 	
-    //     return redirect()->route('app.users.index');
-    // }
+        
+               $user->delete();
+        return redirect()->route('user');
+
+        // return redirect()->route('app.users.index');
+    }
 }

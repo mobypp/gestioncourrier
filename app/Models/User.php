@@ -65,30 +65,30 @@ class User extends Authenticatable
 	 *  -------------------------------------------------
 	 */
 
-    public function isAdmin()
-    {
-        return $this->Role->type == 'Admin';
-    }
+    // public function isAdmin()
+    // {
+    //     return $this->Role->type == 'Admin';
+    // }
 
-    public function isBO()
-    {
-        return $this->Role->type == 'BO';
-    }
+    // public function isBO()
+    // {
+    //     return $this->Role->type == 'BO';
+    // }
 
-    public function isCS()
-    {
-        return $this->Role->type == 'CS';
-    }
+    // public function isCS()
+    // {
+    //     return $this->Role->type == 'CS';
+    // }
 
-    public function isCD()
-    {
-        return $this->Role->type == 'CD';
-    }
+    // public function isCD()
+    // {
+    //     return $this->Role->type == 'CD';
+    // }
 
-    public function isUF()
-    {
-        return $this->Role->type == 'UF';
-    }
+    // public function isUF()
+    // {
+    //     return $this->Role->type == 'UF';
+    // }
 
 
 
