@@ -65,4 +65,4 @@ Auth::routes(['register' => true]);
 // Courrier et organisme
 
 Route::resource('courrier', 'CourrierController');
-Route::resource('organisme', 'CourrierController');
+Route::resource('organisme', 'OrganismeController');
