@@ -65,11 +65,20 @@
 
         <!-- Nav Item - Courrier -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('courrier') }}">
+            <a class="nav-link" href="{{ route('courrier.index') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Courrier') }}</span>
             </a>
         </li>
+		
+		<!-- Nav Item - Organisme -->
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('organisme.index') }}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('Organimse') }}</span>
+            </a>
+        </li>
+		
         <!-- Nav Item - Division -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('division') }}">

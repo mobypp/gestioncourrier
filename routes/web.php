@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 
+
 // php artisan make:Controller CourrierController
 
 
@@ -65,3 +66,9 @@ Route::get('edit/{id}',[App\Http\Controllers\ServiceController::class,'edit']);
 Auth::routes(['register' => true]);
 // Auth::routes();
 // $user = Auth::user();
+
+
+// Courrier et organisme
+
+Route::resource('courrier', 'CourrierController');
+Route::resource('organisme', 'OrganismeController');
