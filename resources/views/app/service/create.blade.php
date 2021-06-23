@@ -2,33 +2,53 @@
 
 @section('main-content')
 
-<h2 class="  text-center" >Ajouter un service</h2>
+<h1 class="h3 mb-4 text-gray-800 text-center">Ajouter un service</h1>
 
-<form action="/service" method="POST">
-    @csrf 
- <div class="mb-3">
-     <label for=""  class="form-label">Nom Service :</label>
-     <input id="Ndiv" name="service" type="text" class="form-control" tabindex="1">
- </div>
+    <main class="site-content">
+        <div class="container">
+                <div class="row">
+                <div class="col-md-8" style="margin-left: 16%">
+            <form  method="POST" action="{{ route('storeS')}}" enctype="multipart/form-data" >
+                {{ csrf_field() }}
+              <div class="form-group row">
+                <label for="" class="col-md-2 ">Service</label>
+                <div class="col-md-10">
+                  <input id="service" type="text" class="form-control  @if($errors->get('service')) is-invalid @endif" 
+                  name="service" value="{{ old('service') }}"  autofocus>
+                  @if ($errors->has('service'))
+                      <span class="help-block invalid-feedback">
+                          <strong>{{ $errors->first('service') }}</strong>
+                      </span>
+                  @endif
+                </div>
+              </div>
 
- <div class="dropdown">
- <label> Division: </label>
-  <select name="division"  class='form control'>
-  @foreach($list as $lista)
-  <option value="{{$lista->id}}"  >{{$lista->nomDivision}}</option>
-  @endforeach
-  </select>
-  
- 
+              
 
+              <div class="form-group row">
+                    <label for="inputPassword3" class="col-md-2 col-form-label">Division</label>
+                    <div class="col-md-10">
+                    <select  class="form-control @if($errors->get('division')) is-invalid @endif"   size="1" 
+                        id="division"  name="division"    onchange="chang()" >
+                    <option disabled selected>Selectionner une division : </option>
+                       @foreach(App\Models\Division::all() as $division)
+                       <option value="{{ $division->id }}" {{ (collect(old('division'))->contains($division->id )) ? 'selected':'' }}>{{ $division->nomDivision }}</option>
+                       @endforeach
+                       </select>
+                       @if ($errors->has('division'))
+                                       <span class="help-block invalid-feedback">
+                                           <strong>{{ $errors->first('division') }}</strong>
+                                       </span>
+                                   @endif
+                  </div>
+                  </div>
 
-</p>
-
- <a href="/service" class="btn btn-secondary" tabindex="5" style="background-color: burlywood">close</a>
- <button type="submit"  class="btn btn-primary"  tabindex="4" style="background-color: brown">save</button>
- 
-
-
-</form>  
+    
+                    <button type="submit" class="btn btn-primary ">Enregistrer</button>
+            </form>
+            </div>
+            </div>
+            </div>
+    </main>
 
 @endsection

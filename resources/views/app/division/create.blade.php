@@ -2,19 +2,40 @@
 
 @section('main-content')
 
-<h2 class="  text-center" >Ajouter une division</h2>
-<form action="/division" method="POST">
-    @csrf 
- <div class="mb-3">
-     <label for=""  class="form-label">Nom Divison :</label>
-     <input id="Ndiv" name="nomDivision" type="text" class="form-control" tabindex="1">
- </div>
+<h1 class="h3 mb-4 text-gray-800 text-center">Ajouter Division</h1>
 
- <a href="/division" class="btn btn-secondary" tabindex="5" style="background-color: burlywood">close</a>
- <button type="submit"  class="btn btn-primary"  tabindex="4" style="background-color: brown">save</button>
- 
+    <main class="site-content">
+        <div class="container">
+                <div class="row">
+                <div class="col-md-8" style="margin-left: 16%">
+            <form  method="POST" action="{{ route('storeD')}}" enctype="multipart/form-data" >
+                {{ csrf_field() }}
+              <div class="form-group row">
+                <label for="" class="col-md-2 ">Division</label>
+                <div class="col-md-10">
+                  <input id="nomDivision" type="text" class="form-control  @if($errors->get('nomDivision')) is-invalid @endif" 
+                  name="nomDivision" value="{{ old('nomDivision') }}"  autofocus>
+                  @if ($errors->has('nomDivision'))
+                      <span class="help-block invalid-feedback">
+                          <strong>{{ $errors->first('nomDivision') }}</strong>
+                      </span>
+                  @endif
+                </div>
+              </div>
 
+              
+        
+              
 
-</form>  
+              
+                      
+             
+                   <button type="submit" class="btn btn-primary ">Enregistrer</button> 
+            </form>
+            </div>
+            </div>
+            </div>
+    </main>
+
 
 @endsection

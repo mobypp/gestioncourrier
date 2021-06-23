@@ -5,15 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Division;
 
+   
 class Service extends Model
 {
-    use SoftDeletes;
     use HasFactory;
     protected $table ="services";
-   // protected $fillable=['service','division'];
-   
-    protected $service =['deleted_at']; }
 
-    //public function division(){
-      //  return $this->belongsTo(Division::class);}
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+      'service','division'
+       
+   ];
+
+   public function division()
+   {
+       return $this->belongsTo(Division::class);
+   }
+   
+}
