@@ -13,11 +13,25 @@
 .bg-b{
     background-color: #FAF0E7;
 }
-.card-header .logo-login{
-    width: 100px;
-    height: 80px;
+.logo-header .logo-login{
+    width: 150px;
+    height: 100px;
     text-align: center;
 }
 .card-header{
     background-color: white!important;
+
+}
+.form-check{
+    text-align:start!important;
+}
+.login-btn{
+    background-color: #6C0B1C!important;
+    color: white!important;
+}
+.card-header h2{
+    color: #A02047;font-weight: bold;
+}
+.link-b{
+    color: #DEB786!important;
 }

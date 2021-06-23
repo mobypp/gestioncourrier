@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-courrier sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('app')}}">
             <div class="sidebar-brand-text mx-3">
                 <img src="{{ asset('theme/img/courrier.png') }}" class="logo"/>
             </div>
@@ -56,12 +56,12 @@
         </div> --}}
 
         <!-- Nav Item - Profile -->
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Profile') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <!-- Nav Item - Courrier -->
         <li class="nav-item ">
@@ -111,12 +111,12 @@
             </a>
         </li>
         <!-- Nav Item - About -->
-        <li class="nav-item ">
+        {{-- <li class="nav-item ">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('About') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -299,18 +299,18 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Profile') }}
                             </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
+                            {{-- <a class="dropdown-item" href="javascript:void(0)">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Settings') }}
                             </a>
                             <a class="dropdown-item" href="javascript:void(0)">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Activity Log') }}
-                            </a>
+                            </a> --}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Logout') }}
+                                {{ __('Déconnexion') }}
                             </a>
                         </div>
                     </li>
@@ -356,15 +356,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ __('Ready to Leave?') }}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ __('Prêt à partir?') }}</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Sélectionnez « Déconnexion » ci-dessous si vous êtes prêt à mettre
+                 fin à votre session en cours.</div>
             <div class="modal-footer">
-                <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
-                <a class="btn btn-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Annuler') }}</button>
+                <a class="btn btn-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnexion') }}</a>
                 <form id="logout-form" action="" method="POST" style="display: none;">
                     @csrf
                 </form>
