@@ -15,10 +15,10 @@ class CreatServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('service',255)->nullable();
-            $table->unsignedBigInteger('division');
+            $table->string('nom',255)->nullable();
+            $table->unsignedBigInteger('division_id');
 
-            $table->foreign('division')->references('id')->on('divisions');
+            $table->foreign('division_id')->references('id')->on('divisions');
             
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();

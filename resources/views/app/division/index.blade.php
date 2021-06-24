@@ -33,7 +33,7 @@
                           
                              
                           </td>
-                          <td>{{$division->nomDivision}}</td>
+                          <td>{{$division->nomdivision}}</td>
                           
                           <td>
                               <a href="{{ route('division.edit',$division->id) }}" role="button"

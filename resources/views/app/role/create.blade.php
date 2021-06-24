@@ -16,7 +16,7 @@
 
        <div class="col-md-6 offset-md-3" >
 
-        <form  method="POST" action="{{ route('store') }}">
+        <form  method="POST" action="{{ route('role.store') }}">
          {{ csrf_field() }}
           <div class="form-group row">
             <label for="inputEmail3" class="col-md-12 col-form-label">Type de role</label>

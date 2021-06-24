@@ -1,6 +1,6 @@
-@extends('theme.admin')
+{{-- @extends('theme.admin')
 
-@section('main-content')
+@section('main-content')  --}}
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -51,4 +51,4 @@
         </div>
     </div>
 
-@endsection
+{{-- @endsection --}}

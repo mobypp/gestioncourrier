@@ -38,7 +38,7 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $division = new Division();
-        $division->nomDivision = $request->input('nomDivision');
+        $division->nomdivision = $request->input('nomdivision');
         
        
         $division->save();
@@ -78,7 +78,7 @@ class DivisionController extends Controller
     public function update($id,Request $request)
     {
         $division = Division::find($id);
-        $division->nomDivision = $request->input('nomDivision');
+        $division->nomdivision = $request->input('nomdivision');
 
         $division->save();
         session()->flash('success', 'division a été bien Modifier !!');

@@ -15,7 +15,7 @@
                         <h1 class="h3 text-muted">La liste des utilisateurs</h1>
         
                         <div class="btn-group ml-auto">
-                            <a href="{{ route('createU') }}" class="btn btn-primary">
+                            <a href="{{ route('user.create') }}" class="btn btn-primary">
                                 Ajouter un utilisateur
                             </a>
                         </div>
@@ -28,6 +28,7 @@
                             <th scope="col">Utilisateur</th>
                             <th scope="col">Adresse e-mail</th>
                             <th scope="col">Rôle</th>
+                            <th scope="col">Service</th>
                             <th scope="col">Adresse</th>
 
                             <th scope="col" colspan="2">Actions</th>
@@ -43,15 +44,16 @@
                                 </td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->role->nom}}</td>
+                                <td>{{$user->service->nom}}</td>
                                 <td>{{$user->adresse}}</td>
                                 <td>
-                                    <a href="{{ route('edit',$user->id) }}" role="button"
+                                    <a href="{{ route('user.edit',$user->id) }}" role="button"
                                        class="btn btn-info btn-sm">
                                         Modifier
                                     </a>
                                 </td>
                                 <td>
-                                <form action="{{ route('user.delete', $user->id )}}" method="post">
+                                <form action="{{ route('user.destroy', $user->id )}}" method="post">
                                     <input type="hidden" name="_method" value="PUT">
                                     {{csrf_field()}}
                                     <button class="btn btn-danger"  

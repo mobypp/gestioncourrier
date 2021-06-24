@@ -32,8 +32,8 @@
                         @forelse ($services as $service)
                         <tr>
                             
-                            <td>{{$service->service}}</td>
-                            <td>{{$service->chaymae->nomDivision}}</td>
+                            <td>{{$service->nom}}</td>
+                            <td>{{$service->division->nomdivision}}</td>
                            
                             <td>
                                 <a href="{{route('service.edit',$service->id) }}" role="button"

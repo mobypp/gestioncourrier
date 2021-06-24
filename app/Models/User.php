@@ -30,6 +30,7 @@ class User extends Authenticatable
         'telephone',
         'password',
         'role_id',
+        'service_id',
         'photo',
 
     ];
@@ -57,7 +58,12 @@ class User extends Authenticatable
       //user has one role->role_id
       public function role()
       {
-          return $this->belongsTo(Role::class);
+          return $this->belongsTo('App\Models\Role');
+      }
+
+      public function service()
+      {
+          return $this->belongsTo('App\Models\Service');
       }
 
       /*

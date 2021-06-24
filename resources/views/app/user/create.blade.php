@@ -9,7 +9,7 @@
         <div class="container">
                 <div class="row">
                 <div class="col-md-8" style="margin-left: 16%">
-            <form  method="POST" action="{{ route('storeU')}}" enctype="multipart/form-data" >
+            <form  method="POST" action="{{ route('user.store')}}" enctype="multipart/form-data" >
                 {{ csrf_field() }}
               <div class="form-group row">
                 <label for="" class="col-md-2 ">Nom</label>
@@ -91,6 +91,24 @@
                        @if ($errors->has('role_id'))
                                        <span class="help-block invalid-feedback">
                                            <strong>{{ $errors->first('role_id') }}</strong>
+                                       </span>
+                                   @endif
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-md-2 col-form-label">Service</label>
+                    <div class="col-md-10">
+                    <select  class="form-control @if($errors->get('service_id')) is-invalid @endif"   size="1" 
+                        id="service_id"  name="service_id"    onchange="chang()" >
+                    <option disabled selected>Selectionner un Service : </option>
+                       @foreach(App\Models\Service::all() as $c)
+                       <option value="{{ $c->id }}" {{ (collect(old('service_id'))->contains($c->id )) ? 'selected':'' }}>{{ $c->nom }}</option>
+                       @endforeach
+                       </select>
+                       @if ($errors->has('service_id'))
+                                       <span class="help-block invalid-feedback">
+                                           <strong>{{ $errors->first('service_id') }}</strong>
                                        </span>
                                    @endif
                   </div>

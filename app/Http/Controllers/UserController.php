@@ -57,10 +57,11 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
         // bcrypt($request->input('password'));
         $user->role_id = $request->input('role_id');
+        $user->service_id = $request->input('service_id');
         // $user->api_token = str_random(60);
         $user->save();
         session()->flash('success', 'Utilisateur a été bien enregistré !!');
-        return redirect()->route('user');
+        return redirect()->route('user.index');
 	}
 
 
@@ -79,9 +80,11 @@ class UserController extends Controller
 
         // $user->password =  bcrypt($request->input('password'));
         $user->role_id = $request->input('role_id');
+        $user->service_id = $request->input('service_id');
+
         $user->save();
         session()->flash('success', 'Utilisateur a été bien Modifier !!');
-        return redirect()->route('user');
+        return redirect()->route('user.index');
     }
 
 	//user profil
@@ -104,7 +107,7 @@ class UserController extends Controller
     // }
 
 
-    public function delete($id)
+    public function destroy($id)
     {
         $user = User::find($id);
 		// $mytime = Carbon::now();
@@ -115,7 +118,7 @@ class UserController extends Controller
 	
         
                $user->delete();
-        return redirect()->route('user');
+        return redirect()->route('user.index');
 
         // return redirect()->route('app.users.index');
     }
