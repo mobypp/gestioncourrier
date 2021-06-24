@@ -37,23 +37,23 @@ Route::put('/edit/{id}', [RoleController::class , 'update'])->name('edit');
 //divisions
 Route::get('/division', [App\Http\Controllers\DivisionController::class , 'index'])->name('division');
 //ajouter division
-Route::get('/createDivision',[App\Http\Controllers\DivisionController::class,'create']);
- Route::post('division',[App\Http\Controllers\DivisionController::class,'store']);
+Route::get('/createDivision',[App\Http\Controllers\DivisionController::class,'create'])->name('division.create');
+ Route::post('division',[App\Http\Controllers\DivisionController::class,'store'])->name('storeD');
 //modifier division
- Route::get('editD/{id}',[App\Http\Controllers\DivisionController::class,'edit']);
+ Route::get('editD/{id}',[App\Http\Controllers\DivisionController::class,'edit'])->name('division.edit');
 
-Route::post('/updateD',[App\Http\Controllers\DivisionController::class,'update'])->name('update.division');
-
+Route::put('/updateD/{id}',[App\Http\Controllers\DivisionController::class,'update'])->name('update.division');
+Route::get('/delete-divsion/{id}' , [App\Http\Controllers\DivisionController::class,'delete'])->name('division.delete');
 //services
 Route::get('/service',[App\Http\Controllers\ServiceController::class,'index'])->name('service');
 //ajouter service
 Route::get('/createService',[App\Http\Controllers\ServiceController::class,'create']);
-Route::post('/service',[App\Http\Controllers\ServiceController::class,'store']);
+Route::post('/service',[App\Http\Controllers\ServiceController::class,'store'])->name('storeS');
 //modifier service
-Route::get('edit/{id}',[App\Http\Controllers\ServiceController::class,'edit']);
- Route::post('/update',[App\Http\Controllers\ServiceController::class,'update'])->name('update.service');
+Route::get('edit/{id}',[App\Http\Controllers\ServiceController::class,'edit'])->name('service.edit');
+ Route::put('/updateS{id}',[App\Http\Controllers\ServiceController::class,'update'])->name('update.service');
 //supprimer service 
- Route::get('/delete-service/{id}' , [App\Http\Controllers\ServiceController::class,'delete']);
+ Route::get('/delete-service/{id}' , [App\Http\Controllers\ServiceController::class,'delete'])->name('service.delete');
 
   //modal ma3reftch lih :) 
  //hadak divsion ba9i kaytafficah gha l id 

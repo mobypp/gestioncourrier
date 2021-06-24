@@ -16,10 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $list = Division::select('nomDivision')->get();
-        $service =Service::all();
-        //$service=Service::with('division')->get();
-        return view('app.service.index',compact('list'))->with('services',$service);
+        $services = Service::paginate(6);
+        return view('app.service.index', compact('services'));
+        
     }
 
     /**
@@ -29,8 +28,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $list = Division::select('id','nomDivision')->get();
-        return view('app.service.create',compact('list'));
+        
+        return view('app.service.create');
+        
     }
 
     /**
@@ -41,17 +41,13 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'service' => 'required' ,
-            'division' =>'required' ,
-        ]);
-
-        DB::table('services')->insert([
-            'service'=>$request->service ,
-            'division'=>$request->division ,
-        ]);
-
-        return back()->with('app.service.index');
+        $service = new Service();
+        $service->service = $request->input('service');
+        $service->division = $request->input('division');
+    
+        $service->save();
+        session()->flash('success', 'service a été bien enregistré !!');
+        return redirect()->route('service');
     }
 
     /**
@@ -73,9 +69,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        $list = Division::select('id','nomDivision')->get();
-        $service=  Service::find($id);
-        return view('app.service.edit',compact('list'))->with('service',$service);
+        $service = Service::find($id);
+        return view('app.service.edit', ['services' => $service]);
     }
 
 
@@ -86,13 +81,15 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update($id,Request $request)
     {
-        DB::table('services')->where('id',$request->id)->update([
-            'service'=>$request->service,
-            'division'=>$request->division
-        ]);
-        return redirect('/service');
+        $service = Service::find($id);
+        $service->service = $request->input('service');
+        $service->division = $request->input('division');
+
+        $service->save();
+        session()->flash('success', 'Service a été bien Modifier !!');
+        return redirect()->route('service');
     }
 
     /**
@@ -103,7 +100,9 @@ class ServiceController extends Controller
      */
     public function delete($id)
     {
-        DB::table('services')->where('id',$id)->delete();
-        return back()->with('delete-service','service deleted successfully');
+        
+        $service = Service::find($id);
+	    $service->delete();
+        return redirect()->route('service');
     }
 }

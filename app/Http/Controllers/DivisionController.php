@@ -15,8 +15,8 @@ class DivisionController extends Controller
      */
     public function index()
     {
-        $division = Division::all();
-        return view('app.division.index')->with('divisions',$division);
+        $divisions = Division::paginate(6);
+        return view('app.division.index', compact('divisions'));
     }
 
     /**
@@ -37,15 +37,13 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'nomDivision' => 'required' ,
-        ]);
-
-        DB::table('divisions')->insert([
-            'nomDivision'=>$request->nomDivision 
-        ]);
-
-        return back()->with('Division.index','Division added successfully');
+        $division = new Division();
+        $division->nomDivision = $request->input('nomDivision');
+        
+       
+        $division->save();
+        session()->flash('success', 'division a été bien enregistré !!');
+        return redirect()->route('division');
     }
     /**
      * Display the specified resource.
@@ -77,13 +75,14 @@ class DivisionController extends Controller
      * @param  \App\Models\Division  $division
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update($id,Request $request)
     {
-        DB::table('divisions')->where('id',$request->id)->update([
-            'nomDivision'=>$request->nomDivision 
-            
-        ]);
-        return redirect('/division');
+        $division = Division::find($id);
+        $division->nomDivision = $request->input('nomDivision');
+
+        $division->save();
+        session()->flash('success', 'division a été bien Modifier !!');
+        return redirect()->route('division');
     }
 
     /**

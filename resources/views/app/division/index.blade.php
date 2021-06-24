@@ -2,35 +2,55 @@
 
 @section('main-content')
 
-<h1 class=" text-center" >Divisions</h1>
-<div class="container">
-    <a href="/createDivision" class="btn btn-primary" style="background-color: brown">Ajouter</a>
-
-<table class="table  table-white  table-striped mt2-">
-
-<thead>
-   <tr>
-   
-   <th scope="col">Division</th>
-   <th scope="col">Actions</th>
-
-   </tr>
-</thead>
-<tbody>
-@foreach ($divisions as $division)
- <tr>
+<main class="site-content">
+  <div class="container" id="app">
+      <div class="row">
+          <div class="col-12">
+          @include('partials.flash')
+              <div class="d-flex align-items-center mb-4">
+                  <h1 class="text-center">La liste des divisions</h1>
   
-  <td>{{$division->nomDivision}}</td> 
+                  <div class="btn-group ml-auto">
+                      <a href="/createDivision" class="btn btn-primary">
+                          Ajouter une division
+                      </a>
+                  </div>
+              </div>
   
-  <td> 
-   
-  <a  href={{"editD/".$division['id']}} class="btn btn-info" style="background-color: darksalmon">modifier</a>
-   
-      
-  </td>
-</tr>
-       
-@endforeach   
-<tbody>
-</table>
+              <div class="table-responsive">
+              <table class="table table-hover">
+                  <thead class="bg-light">
+                  <tr>
+                      <th scope="col">Division</th>
+                      
+
+                      <th scope="col" colspan="2">Actions</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      @forelse ($divisions as $division)
+                      <tr>
+                          
+                             
+                          </td>
+                          <td>{{$division->nomDivision}}</td>
+                          
+                          <td>
+                              <a href="{{ route('division.edit',$division->id) }}" role="button"
+                                 class="btn btn-info ">
+                                  Modifier
+                              </a>
+                          </td>
+                          
+                      </tr>
+                      @empty
+                      @endforelse
+                  </tbody>
+              </table>
+              {{ $divisions->links("pagination::bootstrap-4") }}
+              </div>
+          </div>
+      </div>
+  </div>
+  </main>
 @endsection
