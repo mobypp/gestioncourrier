@@ -13,11 +13,11 @@
               <div class="form-group row">
                 <label for="" class="col-md-2 ">Division</label>
                 <div class="col-md-10">
-                  <input id="nomDivision" type="text" class="form-control" name="nomDivision" value="{{$division->nomDivision}}" 
-                  @if($errors->get('nomDivision')) is-invalid @endif autofocus required>
-                  @if ($errors->has('nomDivision'))
+                  <input id="nomdivision" type="text" class="form-control" name="nomdivision" value="{{$division->nomdivision}}" 
+                  @if($errors->get('nomdivision')) is-invalid @endif autofocus required>
+                  @if ($errors->has('nomdivision'))
                   <span class="help-block invalid-feedback">
-                      {{ $errors->first('nomDivision') }}
+                      {{ $errors->first('nomdivision') }}
                   </span>
                   @endif
                 </div>

@@ -28,9 +28,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        
         return view('app.service.create');
-        
     }
 
     /**
@@ -42,23 +40,12 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $service = new Service();
-        $service->service = $request->input('service');
-        $service->division = $request->input('division');
+        $service->nom = $request->input('nom');
+        $service->division_id = $request->input('division_id');
     
         $service->save();
         session()->flash('success', 'service a été bien enregistré !!');
         return redirect()->route('service');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Service  $service
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Service $service)
-    {
-        //
     }
 
     /**
@@ -84,8 +71,8 @@ class ServiceController extends Controller
     public function update($id,Request $request)
     {
         $service = Service::find($id);
-        $service->service = $request->input('service');
-        $service->division = $request->input('division');
+        $service->nom = $request->input('nom');
+        $service->division_id = $request->input('division_id');
 
         $service->save();
         session()->flash('success', 'Service a été bien Modifier !!');

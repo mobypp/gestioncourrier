@@ -14,11 +14,11 @@
                 <div class="form-group row">
                   <label for="" class="col-md-2 ">Service</label>
                   <div class="col-md-10">
-                    <input id="service" type="text" class="form-control" name="service" value="{{$services->service}}" 
-                    @if($errors->get('service')) is-invalid @endif autofocus required>
-                    @if ($errors->has('service'))
+                    <input id="nom" type="text" class="form-control" name="nom" value="{{$services->nom}}" 
+                    @if($errors->get('nom')) is-invalid @endif autofocus required>
+                    @if ($errors->has('nom'))
                     <span class="help-block invalid-feedback">
-                        {{ $errors->first('service') }}
+                        {{ $errors->first('nom') }}
                     </span>
                     @endif
                   </div>
@@ -29,10 +29,10 @@
             <div class="form-group row">
                   <label for="inputPassword3" class="col-md-2 col-form-label">division</label>
                   <div class="col-md-10">
-                  <select  class="form-control"   size="1"  name="division"  id="division" onchange="chang()">
+                  <select  class="form-control"   size="1"  name="division_id"  id="division_id" onchange="chang()">
                     <option disabled>Selectionner une division : </option>
                        @foreach(App\Models\Division::all() as $division)
-                       <option value="{{ $division->id }}" @if($services->division == $division->id) selected {{$div = $division->nomDivision}}  @endif>{{ $division->nomDivision }}</option>
+                       <option value="{{ $division->id }}" @if($services->division_id == $division->id) selected {{$div = $division->nomdivision}}  @endif>{{ $division->nomdivision }}</option>
                        @endforeach
                   </select>
                 </div>

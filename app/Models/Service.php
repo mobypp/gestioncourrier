@@ -13,11 +13,10 @@ class Service extends Model
     use HasFactory;
     protected $table ="services";
 
-    //protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-<<<<<<< HEAD
-     'id' ,'service','division'
+     'id' ,'nom','division_id'
        
    ];
 
@@ -25,22 +24,7 @@ class Service extends Model
 
    public function division()
    {
-    return $this->belongsTo('App\Models\Division');
-
-    //    return $this->belongsTo('App\Models\Division');
-=======
-      'service','division' ,
-       
-   ];
-
-   public function chaymae()
-   {
-       return $this->belongsTo('App\Models\Division' ,'division');
->>>>>>> 5e22763a5b024ac2d1a0bfd92ecb38e24c88e992
+    return $this->belongsTo('App\Models\Division');     
    }
-//    //user has one role->role_id
-//    public function role()
-//    {
-//        return $this->belongsTo(Role::class);
-//    }
+ 
 }
