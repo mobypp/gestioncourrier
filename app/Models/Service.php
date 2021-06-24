@@ -13,16 +13,16 @@ class Service extends Model
     use HasFactory;
     protected $table ="services";
 
-    protected $primaryKey = 'id';
+    //protected $primaryKey = 'id';
 
     protected $fillable = [
-      'service','division'
+      'service','division' ,
        
    ];
 
-   public function division()
+   public function chaymae()
    {
-       return $this->belongsTo(Division::class);
+       return $this->belongsTo('App\Models\Division' ,'division');
    }
    
 }

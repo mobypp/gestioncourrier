@@ -14,10 +14,7 @@ class Division extends Model
 
 
 
-   protected $fillable = [
-       'nomDivision',
-       
-   ];
+   protected $fillable = ['nomDivision'];
     //protected $fllable=['nomDivison'];
 
    

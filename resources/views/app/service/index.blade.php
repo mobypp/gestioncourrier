@@ -33,7 +33,7 @@
                         <tr>
                             
                             <td>{{$service->service}}</td>
-                            <td>{{$service->division}}</td>
+                            <td>{{$service->chaymae->nomDivision}}</td>
                            
                             <td>
                                 <a href="{{route('service.edit',$service->id) }}" role="button"
