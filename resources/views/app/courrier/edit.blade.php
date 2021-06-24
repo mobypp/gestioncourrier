@@ -1,6 +1,6 @@
-@extends('theme.admin')
+{{-- @extends('theme.admin')
 
-@section('main-content')
+@section('main-content') --}}
 
 <div class="card mt-5">
     <div class="card-header">
@@ -62,4 +62,4 @@
     </div>
 </div>
 
-@endsection
+{{-- @endsection --}}

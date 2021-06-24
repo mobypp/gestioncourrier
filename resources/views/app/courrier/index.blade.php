@@ -6,8 +6,10 @@
     {{-- <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1> --}}
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('courrier.create') }}"> Nouveau courrier</a>
+                        <div class="pull-right">
+                <a class="btn btn-success text-light" data-toggle="modal" id="mediumButton" data-target="#mediumModal"
+                    data-attr="{{ route('courrier.create') }}" title="Create a project"> <i class="fas fa-plus-circle"></i>
+                </a>
             </div>
         </div>
 </div><br>
@@ -41,19 +43,30 @@
       <td>{{ $courrier->objet }}</td>
       <td>{{ $courrier->etat }}</td>
 	  <td>{{ $courrier->organisme }}</td>
-      <td>
-      <form action="{{ route('courrier.destroy',$courrier->id) }}" method="POST">
-        
-        <a class="btn btn-info" href="{{ route('courrier.show',$courrier->id) }}">Montrer</a>
+	  <td>
+			<form action="{{ route('courrier.destroy', $courrier->id) }}" method="POST">
 
-        <a class="btn btn-primary" href="{{ route('courrier.edit',$courrier->id) }}">Editer</a>
+				<a data-toggle="modal" id="smallButton" data-target="#smallModal"
+					data-attr="{{ route('courrier.show', $courrier->id) }}" title="show">
+					<button class="btn btn-info">
+						Montrer
+					</button>
+				</a>
 
-        @csrf
-        @method('DELETE')
+				<a class="text-secondary" data-toggle="modal" id="mediumButton" data-target="#mediumModal"
+					data-attr="{{ route('courrier.edit', $courrier->id) }}">
+					<button class="btn btn-info">
+						Editer
+					</button>
+				</a>
+				@csrf
+				@method('DELETE')
 
-        <button type="submit" class="btn btn-danger">Supprimer</button>
-        </form>
-      </td>
+				<button type="submit" title="delete" class="btn btn-danger">
+					Supprimer
+				</button>
+			</form>
+		</td>
     </tr>
 @endforeach
   </tbody>
@@ -63,4 +76,102 @@
 
 
   
+<!-- small modal -->
+    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="smallBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
+                </div>
+				<div class="modal-footer" id="smallBody">
+					<button type="button" class="close" data-dismiss="modal">
+				</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- medium modal -->
+    <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="mediumBody">
+                    <div>
+                        <!-- the result to be displayed apply here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // display a modal (small modal)
+        $(document).on('click', '#smallButton', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href,
+                beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#smallModal').modal("show");
+                    $('#smallBody').html(result).show();
+                },
+                complete: function() {
+                    $('#loader').hide();
+                },
+                error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                },
+                timeout: 8000
+            })
+        });
+
+        // display a modal (medium modal)
+        $(document).on('click', '#mediumButton', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href,
+                beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#mediumModal').modal("show");
+                    $('#mediumBody').html(result).show();
+                },
+                complete: function() {
+                    $('#loader').hide();
+                },
+                error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                },
+                timeout: 8000
+            })
+        });
+
+    </script>
+
 @endsection
