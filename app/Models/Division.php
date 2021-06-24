@@ -21,6 +21,11 @@ class Division extends Model
     //protected $fllable=['nomDivison'];
 
    
+    // public function users()
+    // {
+    //     return $this->hasMany('App\Models\User');
+    // }
+
     public function services()
     {
         return $this->hasMany('App\Models\Service');

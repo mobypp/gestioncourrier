@@ -16,13 +16,21 @@ class Service extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-      'service','division'
+     'id' ,'service','division'
        
    ];
 
+   //service has one division->div-id
+
    public function division()
    {
-       return $this->belongsTo(Division::class);
+    return $this->belongsTo('App\Models\Division');
+
+    //    return $this->belongsTo('App\Models\Division');
    }
-   
+//    //user has one role->role_id
+//    public function role()
+//    {
+//        return $this->belongsTo(Role::class);
+//    }
 }
