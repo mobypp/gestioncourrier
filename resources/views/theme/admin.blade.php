@@ -112,6 +112,12 @@
                 <span>{{ __('role') }}</span>
             </a>
         </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('notif') }}">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('notif') }}</span>
+            </a>
+        </li>
         <!-- Nav Item - About -->
         {{-- <li class="nav-item ">
             <a class="nav-link" href="#">
