@@ -11,7 +11,7 @@ use App\Http\Controllers\NotificationController;
 
 // php artisan make:Controller CourrierController
 // php artisan make:migration add_column_service_id_users --table= users
-
+// php artisan make:migration create_users_table
 
 Route::get('/', [HomeController::class , 'index'])->name('app');
 // User
@@ -21,6 +21,7 @@ Route::resource('role', 'RoleController');
 //Notification
 Route::get('/notif', [NotificationController::class , 'show'])->name('notif');
 
+Route::get('send', [HomeController::class,'sendNotification']);
 
 //divisions
 Route::get('/division', [App\Http\Controllers\DivisionController::class , 'index'])->name('division');
