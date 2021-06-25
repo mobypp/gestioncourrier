@@ -15,10 +15,6 @@
     <!-- Fonts -->
     <link href="{{ asset('theme/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	
-	<!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
 
     <!-- Styles -->
     <link href="{{ asset('theme/css/style.css') }}" rel="stylesheet">
@@ -26,6 +22,8 @@
 
     <!-- Favicon -->
     <link href="{{ asset('theme/img/favicon.png') }}" rel="icon" type="image/png">
+    
+    
 </head>
 <body id="page-top">
 
@@ -190,7 +188,8 @@
                             <span class="badge badge-danger badge-counter">3+</span>
                         </a>
                         <!-- Dropdown - Alerts -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                            
                             
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="mr-3">
@@ -205,7 +204,7 @@
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="mr-3">
-                                    <div class="icon-circle ">
+                                    <div class="icon-circle">
                                         <i class="fas fa-exclamation-triangle text-white"></i>
                                     </div>
                                 </div>
@@ -214,7 +213,7 @@
                                     notification2
                                 </div>
                             </a>
-                            <a class="nav-link" href="{{ route('courrier.index') }}">show all </a>
+                            <a class="nav-link" href="{{ route('notification') }}">show all </a>
                         </div>
                     </li>
 
@@ -279,10 +278,8 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span> --}}
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"> you</span>
-                            {{-- <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""><img src="{{ Auth::user()->photo }}" /></figure> --}}
-                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""><img src="" /></figure>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span>
+                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""><img src="{{ Auth::user()->photo }}" /></figure>
                             {{-- <img src="{{ auth()->user()->photo }}" width="40" height="40"
                                  class="rounded-circle mr-3" /> --}}
                         </a>
