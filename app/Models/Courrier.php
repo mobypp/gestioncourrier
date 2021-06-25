@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Courrier extends Model
 {
     protected $fillable = [
-        'id', 'matricule', 'titre', 'destination', 'objet', 'file', 'contenu', 'etat', 'file',
+        'id', 'matricule', 'titre', 'destination', 'objet', 'file', 'contenu', 'etat',
     ];
 
     //courrier has one organisme->org-id

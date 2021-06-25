@@ -1,54 +1,55 @@
 @extends('theme.admin')
 
 @section('main-content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2></h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-info" href="{{ route('courrier.index') }}"> Back</a>
-        </div>
-    </div>
-</div><br>
 
-<div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Numero de Courrier:</strong>
-                {{ $courrier->id }}
-            </div>
-        </div>
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Titre:</strong>
-                {{ $courrier->titre }}
-            </div>
-        </div>
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Contenu:</strong>
-                {{ $courrier->contenu }}
-            </div>
-        </div>
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Sens:</strong>
-                {{ $courrier->sens }}
-            </div>
-        </div>
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Objet:</strong>
-                {{ $courrier->objet }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Etat:</strong>
-                {{ $courrier->etat }}
-            </div>
-        </div>
-    </div>
 
-{{-- @endsection --}}
+    <div class="container">
+        <div class=" courrier-s">
+            <div class="row">
+                <div class="col-8">
+                    <a class="" href="{{ route('app')}}">
+                        <img src="{{ asset('theme/img/courrier.png') }}" class="logo"/>
+                    </a>
+                </div>
+                <div class="col-4 align-content-end">
+                    <div class="courrier-info ">
+                        <p><span><b>Marrakech le :</b></span>{{ $courrier->created_at }}</p>
+                        <p><span><b>Titre :</b></span>{{ $courrier->titre }}}</p>
+                        <p><span><b>Nom d'organisme :</b></span>{{ $courrier->organisme }}</p>
+                        <p><span><b>Localisation :</b></span>{{ $courrier->organisme }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-8 objet">
+                    <p><span><b>Objet :</b></span>{{ $courrier->objet }}</p>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-12 content">
+					{{($courrier->contenu) }}
+                </div>
+				<input type="file" value="fichier" />
+            </div>
+
+            <div class="row align-content-end">
+              <div class="col-12 ">
+                  <div class="courrier-info ">
+                      <p><span><b>signature</b></span></p>
+                      <p><span><b>Nom </b></span>Prenom</p>
+                  </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row ">
+            <div class="col-6">
+                <div class="btn-valider">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        Enregistrer
+                      </a>
+                </div>
+            </div>
+          </div>
+    </div>
+@endsection

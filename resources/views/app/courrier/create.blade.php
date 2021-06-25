@@ -22,15 +22,12 @@
 		<div class="form-row">
             <div class="form-group col-md-4 mb-3" >
                 @csrf
-                 <label for="matricule">Matricule</label>
 				 <input type="text" class="form-control"  placeholder="Entrer Matricule" name ="matricule">
 			  </div>
-			  <div class="form-group col-md-4 mb-3"">
-				<label for="titre">Titre</label>
+			  <div class="form-group col-md-4 mb-3">
 				<input type="text" class="form-control"  placeholder="Entrer Titre" name ="titre">
 			  </div>
-			  <div class="form-group col-md-4 mb-3"">
-				  <label class="">Destination</label>
+			  <div class="form-group col-md-4 mb-3">
 				  <select name="destination" class="form-control">
 						 <option disabled selected>Selectionner la destination</option>
 						 @foreach((App\Models\Organisme::get()) as $organisme)
@@ -42,15 +39,13 @@
 				</div>
 			</div>
 			<div class="form-row">
-			  <div class="form-group">
-				<label for="objet">Objet</label>
+			  <div class="form-group col-md-8 mb-3">
 				<input type="text" class="form-control"  placeholder="Entrer Objet" name ="objet">
 			  </div>
 			  
 			 </div>
 			  
 			<div class="form-group">
-				<label for="contenu">Contenu</label>
 				<textarea class="ckeditor form-control" name="contenu"></textarea>
 			</div>
 

@@ -44,7 +44,6 @@ class CourrierController extends Controller
             'titre' => 'required',
 			'destination' => 'required',
 			'objet' => 'required',
-			'file' => 'required',
 			'contenu' => 'required',
         ]);
         Courrier::create($request->all());
