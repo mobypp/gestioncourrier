@@ -39,18 +39,32 @@ class CourrierController extends Controller
     public function store(Request $request)
     {
 		
-        $request->validate([
-			'matricule' => 'required',
-            'titre' => 'required',
-			'destination' => 'required',
-			'objet' => 'required',
-			'contenu' => 'required',
-        ]);
-        Courrier::create($request->all());
+        // $request->validate([
+		// 	'matricule' => 'required',
+        //     'titre' => 'required',
+		// 	'destination' => 'required',
+		// 	'objet' => 'required',
+		// 	'contenu' => 'required',
+        // ]);
+        // Courrier::create($request->all());
 		
 
-        return redirect()->route('courrier.index')
-        ->with('success','Courrier created successfully.');
+        $courrier = new courrier();
+        $courrier->matricule = $request->input('matricule');
+        $courrier->titre = $request->input('titre');
+        $courrier->destination = $request->input('destination');
+        $courrier->objet = $request->input('objet');
+        $courrier->contenu = $request->input('contenu');
+      
+      
+        $courrier->save();
+        session()->flash('success', 'Utilisateur a été bien enregistré !!');
+        // return redirect()->route('user.index');
+        $courrier = courrier::find($courrier->id);
+        return view('app.courrier.show', ['courrier' => $courrier]);
+
+        // return redirect()->route('courrier.index')
+        // ->with('success','Courrier created successfully.');
     }
 
     /**
