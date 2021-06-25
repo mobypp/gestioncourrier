@@ -9,7 +9,7 @@
       <h1 class="h4 text-muted">La liste des roles</h1>
 
       <div class="btn-group ml-auto" >
-          <a href="{{ route('create')}}" class="list-group-item list-group-item-action active" aria-current="true">
+          <a href="{{ route('role.create')}}" class="list-group-item list-group-item-action active" aria-current="true">
             Ajouter une role
           </a>
       </div>
@@ -47,9 +47,11 @@
                                         aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{ url('edit/'.$role->id) }}" method="post">
+                            </div> 
+        
+
+                            <div class="modal-body"> 
+                                <form action="{{ route('role.update', $role->id) }}" method="post">
                                     <input type="hidden" name="_method" value="PUT">
                                     {{csrf_field()}}
                                     <div class="form-group">

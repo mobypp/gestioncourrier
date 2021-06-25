@@ -26,5 +26,10 @@ class Service extends Model
    {
     return $this->belongsTo('App\Models\Division');     
    }
+
+   public function users()
+   {
+       return $this->hasMany('App\Models\User');
+   }
  
 }

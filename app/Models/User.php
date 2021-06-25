@@ -30,6 +30,7 @@ class User extends Authenticatable
         'telephone',
         'password',
         'role_id',
+        'service_id',
         'photo',
 
     ];
@@ -58,6 +59,11 @@ class User extends Authenticatable
       public function role()
       {
           return $this->belongsTo('App\Models\Role');
+      }
+
+      public function service()
+      {
+          return $this->belongsTo('App\Models\Service');
       }
 
       /*

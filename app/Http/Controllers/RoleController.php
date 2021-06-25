@@ -26,14 +26,14 @@ class RoleController extends Controller
         $role->nom = $request->input('nom');
         $role->save();
         session()->flash('success', 'le role a été bien enregistré !!');
-        return redirect()->route('role');
+        return redirect()->route('role.index');
     }
     public function update($id, Request $request)
     {
         $role = Role::find($id);
         $role->nom = $request->input('nom');
         $role->save();
-        return redirect()->route('role');
+        return redirect()->route('role.index');
     }
 	//we not using it
 //    public function destroy(Request $request,$id){

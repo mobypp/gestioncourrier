@@ -86,7 +86,17 @@
                     </select>
                   </div>
                   </div>
-              
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-md-2 col-form-label">Service</label>
+                    <div class="col-md-10">
+                    <select  class="form-control"   size="1"  name="service_id"  id="service_id" onchange="chang()">
+                      <option disabled>Selectionner un Service : </option>
+                         @foreach(App\Models\Service::all() as $c)
+                         <option value="{{ $c->id }}" @if($user->service_id == $c->id) selected {{$ro = $c->nom}}  @endif>{{ $c->nom }}</option>
+                         @endforeach
+                    </select>
+                  </div>
+                  </div>
               <div class="form-group row">
                       <label for="inputPassword3" class="col-md-2 col-form-label">Password</label>
                       <div class="col-md-10">

@@ -9,7 +9,7 @@ use App\Http\Controllers\RoleController;
 
 
 // php artisan make:Controller CourrierController
-
+// php artisan make:migration add_column_service_id_users --table= users
 
 // Route::get('/', 'HomeController@dashboard')->name('app.dashboard');
 
@@ -19,19 +19,18 @@ Route::get('/courrier', [CourrierController::class , 'index'])->name('courrier')
 // Route::get('/home', [HomeController::class , 'index'])->name('app');
 // Route::get('courrier', [CourrierController::class , 'index'])->name('courrier');
 // User
-Route::get('/user', [UserController::class , 'index'])->name('user');
-Route::get('/createU', [UserController::class , 'create'])->name('createU');
-Route::post('/storeU', [UserController::class , 'store'])->name('storeU');
-Route::get('/edit/{id}', [UserController::class , 'edit'])->name('user.edit');
-Route::put('/update/{id}', [UserController::class , 'update'])->name('user.update');
-Route::put('/delete/{id}', [UserController::class , 'delete'])->name('user.delete');
+Route::resource('user', 'UserController');
+
+// Route::get('/user', [UserController::class , 'index'])->name('user');
+// Route::get('/createU', [UserController::class , 'create'])->name('createU');
+// Route::post('/storeU', [UserController::class , 'store'])->name('storeU');
+// Route::get('/edit/{id}', [UserController::class , 'edit'])->name('editU');
+// Route::put('/update/{id}', [UserController::class , 'update'])->name('user.update');
+// Route::put('/delete/{id}', [UserController::class , 'delete'])->name('user.delete');
 // Route::get('/user', [UserController::class , 'index'])->name('user');
 //Role
-// Route::get('/role', [RoleController::class , 'index'])->name('role');
-Route::get('/role', [RoleController::class , 'index'])->name('role');
-Route::get('/create', [RoleController::class , 'create'])->name('create');
-Route::post('/store', [RoleController::class , 'store'])->name('store');
-Route::put('/edit/{id}', [RoleController::class , 'update'])->name('edit');
+Route::resource('role', 'RoleController');
+
 
 
 //divisions
