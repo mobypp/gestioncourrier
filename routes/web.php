@@ -6,6 +6,7 @@ use App\Http\Controllers\CourrierController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\NotificationController;
 
 
 // php artisan make:Controller CourrierController
@@ -17,6 +18,8 @@ Route::get('/', [HomeController::class , 'index'])->name('app');
 Route::resource('user', 'UserController');
 //Role
 Route::resource('role', 'RoleController');
+//Notification
+Route::get('/notif', [NotificationController::class , 'show'])->name('notif');
 
 
 //divisions
