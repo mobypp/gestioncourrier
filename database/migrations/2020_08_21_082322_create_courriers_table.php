@@ -25,9 +25,9 @@ class CreateCourriersTable extends Migration
 				->onDelete('cascade');
 				
 			$table->string('objet');
-			$table->string('file');
             $table->text('contenu');
             $table->boolean('etat')->default('1');
+			$table->string('image');
             $table->timestamps();
         });
     }

@@ -43,6 +43,13 @@
 				<input type="text" class="form-control"  placeholder="Entrer Objet" name ="objet">
 			  </div>
 			  
+			<div class="form-group col-md-4 mb-3">
+                 <input type="file" name="image" class="form-control" placeholder="Image">
+                @error('image')
+                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+               @enderror
+            </div>
+			  
 			 </div>
 			  
 			<div class="form-group">

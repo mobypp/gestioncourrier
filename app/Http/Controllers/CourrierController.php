@@ -47,14 +47,15 @@ class CourrierController extends Controller
 		// 	'contenu' => 'required',
         // ]);
         // Courrier::create($request->all());
-		
 
+		$path = $request->file('image')->store('public/images');
         $courrier = new courrier();
         $courrier->matricule = $request->input('matricule');
         $courrier->titre = $request->input('titre');
         $courrier->destination = $request->input('destination');
         $courrier->objet = $request->input('objet');
         $courrier->contenu = $request->input('contenu');
+		$courrier->image = $path;
       
       
         $courrier->save();

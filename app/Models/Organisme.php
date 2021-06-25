@@ -12,6 +12,6 @@ class Organisme extends Model
 
     public function courrier()
     {
-     return $this->hasMany('App\Models\Courrier');     
+     return $this->hasMany(Courrier::class);     
     }
 }

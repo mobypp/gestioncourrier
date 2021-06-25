@@ -37,7 +37,7 @@
       <th scope="row">{{ $courrier->id }}</th>
 	  <td>{{ $courrier->matricule }}</td>
       <td>{{ $courrier->titre }}</td>
-      <td>{{ $courrier->destination }}</td>
+      <td>{{ optional($courrier->destination)->organisme }}</td>
       <td>{{ $courrier->objet }}</td>
       <td>
 		@if($courrier->etat)

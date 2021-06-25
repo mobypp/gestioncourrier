@@ -14,9 +14,9 @@
                 <div class="col-4 align-content-end">
                     <div class="courrier-info ">
                         <p><span><b>Marrakech le :</b></span>{{ $courrier->created_at }}</p>
-                        <p><span><b>Titre :</b></span>{{ $courrier->titre }}}</p>
-                        <p><span><b>Nom d'organisme :</b></span>{{ $courrier->organisme }}</p>
-                        <p><span><b>Localisation :</b></span>{{ $courrier->organisme }}</p>
+                        <p><span><b>Titre :</b></span>{{ $courrier->titre }}</p>
+                        <p><span><b>Nom d'organisme :</b></span>{{ $courrier->destination }}</p>
+                        <p><span><b>Localisation :</b></span>{{ $courrier->destination }}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="col-12 content">
 					{{($courrier->contenu) }}
                 </div>
-				<input type="file" value="fichier" />
+				<img src="{{ Storage::url($courrier->image) }}"/>
             </div>
 
             <div class="row align-content-end">
@@ -42,14 +42,9 @@
             </div>
             
           </div>
-          <div class="row ">
-            <div class="col-6">
-                <div class="btn-valider">
-                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                        Enregistrer
-                      </a>
-                </div>
+			<div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Editer</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+			</div><br>
             </div>
-          </div>
-    </div>
 @endsection

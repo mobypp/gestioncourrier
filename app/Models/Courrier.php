@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Courrier extends Model
 {
     protected $fillable = [
-        'id', 'matricule', 'titre', 'destination', 'objet', 'file', 'contenu', 'etat',
+        'id', 'matricule', 'titre', 'destination', 'objet', 'file', 'contenu', 'etat', 'image',
     ];
 
     //courrier has one organisme->org-id
 
    public function organisme()
    {
-    return $this->belongsTo('App\Models\Organisme');     
+    return $this->belongsTo(Organisme::class);     
    }
 }
