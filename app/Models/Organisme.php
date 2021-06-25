@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Courrier;
+
 
 use Illuminate\Database\Eloquent\Model;
 

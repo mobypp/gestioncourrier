@@ -68,12 +68,12 @@
         </div> --}}
 
         <!-- Nav Item - Profile -->
-        {{-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Profile') }}</span>
             </a>
-        </li> --}}
+        </li> 
 
         <!-- Nav Item - Courrier -->
         <li class="nav-item ">
