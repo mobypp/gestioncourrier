@@ -35,3 +35,31 @@
 .link-b{
     color: #DEB786!important;
 }
+/* courrier Styleshow */
+.courrier-s{
+    border: 2px solid #DEB786;
+    /* width: 100%;height: auto; */
+    border-radius: 20px;padding: 50px;
+    margin: 30px 0;
+}
+.courrier-s .courrier-info{
+    /* text-align: right; */
+    float: right;
+}
+.courrier-s .logo{
+    width: 170px;height: auto;
+}
+.objet {
+    text-align: center;
+    font-size: 17px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+.content {
+    text-align: justify;
+    font-size: 17px;
+    margin: 35px;
+}
+.btn-valider{
+    text-align: center;
+}
