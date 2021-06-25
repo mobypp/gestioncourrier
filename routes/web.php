@@ -11,26 +11,12 @@ use App\Http\Controllers\RoleController;
 // php artisan make:Controller CourrierController
 // php artisan make:migration add_column_service_id_users --table= users
 
-// Route::get('/', 'HomeController@dashboard')->name('app.dashboard');
 
 Route::get('/', [HomeController::class , 'index'])->name('app');
-Route::get('/courrier', [CourrierController::class , 'index'])->name('courrier');
-
-// Route::get('/home', [HomeController::class , 'index'])->name('app');
-// Route::get('courrier', [CourrierController::class , 'index'])->name('courrier');
 // User
 Route::resource('user', 'UserController');
-
-// Route::get('/user', [UserController::class , 'index'])->name('user');
-// Route::get('/createU', [UserController::class , 'create'])->name('createU');
-// Route::post('/storeU', [UserController::class , 'store'])->name('storeU');
-// Route::get('/edit/{id}', [UserController::class , 'edit'])->name('editU');
-// Route::put('/update/{id}', [UserController::class , 'update'])->name('user.update');
-// Route::put('/delete/{id}', [UserController::class , 'delete'])->name('user.delete');
-// Route::get('/user', [UserController::class , 'index'])->name('user');
 //Role
 Route::resource('role', 'RoleController');
-
 
 
 //divisions
@@ -54,18 +40,8 @@ Route::get('edit/{id}',[App\Http\Controllers\ServiceController::class,'edit'])->
 //supprimer service 
  Route::get('/delete-service/{id}' , [App\Http\Controllers\ServiceController::class,'delete'])->name('service.delete');
 
-  //modal ma3reftch lih :) 
- //hadak divsion ba9i kaytafficah gha l id 
 
-
-// Auth::routes();
-
-
-
-Auth::routes(['register' => true]);
-// Auth::routes();
-// $user = Auth::user();
-
+Auth::routes(['register' => false]);
 
 // Courrier et organisme
 
