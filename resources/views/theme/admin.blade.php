@@ -19,6 +19,12 @@
 	<!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
+	<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+	</script>
 
     <!-- Styles -->
     <link href="{{ asset('theme/css/style.css') }}" rel="stylesheet">

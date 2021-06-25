@@ -40,15 +40,13 @@ class CourrierController extends Controller
     {
 		
         $request->validate([
-            'id' => 'required',
+			'matricule' => 'required',
             'titre' => 'required',
-			'contenu' => 'required',
-			'sens' => 'required',
+			'destination' => 'required',
 			'objet' => 'required',
-			'etat' => 'required',
-			'organisme' => 'required',
-        ]);        
-
+			'file' => 'required',
+			'contenu' => 'required',
+        ]);
         Courrier::create($request->all());
 		
 
@@ -88,13 +86,11 @@ class CourrierController extends Controller
     public function update(Request $request, Courrier $courrier)
     {
         $request->validate([
-            'id' => 'required',
+			'matricule' => 'required',
             'titre' => 'required',
-			'contenu' => 'required',
-			'sens' => 'required',
+			'destination' => 'required',
 			'objet' => 'required',
-			'etat' => 'required',
-			'organisme' => 'required',
+			'contenu' => 'required',
         ]);
 
         $courrier->update($request->all());

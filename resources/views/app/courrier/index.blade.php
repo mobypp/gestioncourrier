@@ -6,10 +6,8 @@
     {{-- <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1> --}}
     <div class="row">
         <div class="col-lg-12 margin-tb">
-                        <div class="pull-right">
-                <a class="btn btn-success text-light" data-toggle="modal" id="mediumButton" data-target="#mediumModal"
-                    data-attr="{{ route('courrier.create') }}" title="Create a project"> <i class="fas fa-plus-circle"></i>
-                </a>
+			<div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('courrier.create') }}">Ajouter</a>
             </div>
         </div>
 </div><br>
@@ -23,13 +21,13 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th scope="col">Numero de Courrier</th>
-      <th scope="col">Titre</th>
-      <th scope="col">Contenu</th>
-      <th scope="col">Sens</th>
-      <th scope="col">Objet</th>
+      <th scope="col">#</th>
+      <th scope="col">Matricule</th>
+	  <th scope="col">Titre</th>
+	  <th scope="col">Destination</th>
+	  <th scope="col">Objet</th>
       <th scope="col">Etat</th>
-	  <th scope="col">Organisme</th>
+	  <th scope="col">Date</th>
 	  <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -37,12 +35,18 @@
 @foreach ($courriers as $courrier)
     <tr>
       <th scope="row">{{ $courrier->id }}</th>
+	  <td>{{ $courrier->matricule }}</td>
       <td>{{ $courrier->titre }}</td>
-      <td>{{ $courrier->contenu }}</td>
-      <td>{{ $courrier->sens }}</td>
+      <td>{{ $courrier->destination }}</td>
       <td>{{ $courrier->objet }}</td>
-      <td>{{ $courrier->etat }}</td>
-	  <td>{{ $courrier->organisme }}</td>
+      <td>
+		@if($courrier->etat)
+			 <p>Envoye</p>
+		 @else
+			<p>Non Envoye</p>
+		@endif
+		</td>
+	  <td>{{ $courrier->created_at }}</td>
 	  <td>
 			<form action="{{ route('courrier.destroy', $courrier->id) }}" method="POST">
 

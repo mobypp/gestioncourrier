@@ -14,18 +14,20 @@ class CreateCourriersTable extends Migration
     public function up()
     {
         Schema::create('courriers', function (Blueprint $table) {
-            $table->string('id');
+            $table->increments('id');
+			$table->string('matricule');
             $table->string('titre');
-            $table->string('contenu');
-            $table->string('sens');
-            $table->string('objet');
-            $table->string('etat');
-			$table->integer('organisme')->unsigned();
+			$table->integer('destination')->unsigned();
 
-			$table->foreign('organisme')
+			$table->foreign('destination')
 				->references('id')
 				->on('organismes')
 				->onDelete('cascade');
+				
+			$table->string('objet');
+			$table->string('file');
+            $table->text('contenu');
+            $table->boolean('etat')->default('1');
             $table->timestamps();
         });
     }
