@@ -50,3 +50,9 @@ Auth::routes(['register' => false]);
 
 Route::resource('courrier', 'CourrierController');
 Route::resource('organisme', 'OrganismeController');
+
+
+
+Route::get('/notification',function() {
+    return view('app.notification.index');
+})->name('notification');
