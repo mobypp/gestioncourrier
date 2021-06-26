@@ -3,16 +3,18 @@
 namespace App\Models;
 use App\Models\Courrier;
 
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Organisme extends Model
 {
+	use HasFactory;
+	
     protected $fillable = [
         'organisme', 'localisation',
     ];
 
-    public function courrier()
+    public function courriers()
     {
      return $this->hasMany(Courrier::class);     
     }

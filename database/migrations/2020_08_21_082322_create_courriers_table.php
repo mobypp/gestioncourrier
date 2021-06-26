@@ -17,7 +17,7 @@ class CreateCourriersTable extends Migration
             $table->increments('id');
 			$table->string('matricule');
             $table->string('titre');
-			$table->integer('destination')->unsigned();
+			$table->unsignedBigInteger('destination');
 
 			$table->foreign('destination')
 				->references('id')

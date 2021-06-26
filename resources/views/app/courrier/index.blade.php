@@ -18,47 +18,52 @@
         </div>
 @endif
 
-<table class="table table-striped table-bordered">
-  <thead>
+<table class="table table-striped table-bordered table-hover">
+  <thead style="display:none">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Matricule</th>
-	  <th scope="col">Titre</th>
-	  <th scope="col">Destination</th>
-	  <th scope="col">Objet</th>
-      <th scope="col">Etat</th>
-	  <th scope="col">Date</th>
+      <th scope="col" style=" text-align:center;">Courrier</th>
 	  <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
 @foreach ($courriers as $courrier)
     <tr>
-      <th scope="row">{{ $courrier->id }}</th>
-	  <td>{{ $courrier->matricule }}</td>
-      <td>{{ $courrier->titre }}</td>
-      <td>{{ optional($courrier->destination)->organisme }}</td>
-      <td>{{ $courrier->objet }}</td>
-      <td>
-		@if($courrier->etat)
-			 <p>Envoye</p>
-		 @else
-			<p>Non Envoye</p>
-		@endif
-		</td>
-	  <td>{{ $courrier->created_at }}</td>
+	  <td scope="row" style="vertical-align: middle">
+	  <div class="row">
+			<div class="col-sm mb-3" >
+				<b>Matricule: </b>{{ $courrier->matricule }}
+			</div>
+			<div class="col-sm mb-3"  style="text-align:center">
+				<b>Titre: </b>{{ $courrier->titre }}
+			</div>
+			<div class="col-sm mb-3" style="text-align:right; color: #A9A9A9">
+				<b>{{ date('Y/m/d', strtotime($courrier->created_at)) }}</b>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-10 mb-3">
+				<b>Contenu: </b>{{ substr(trim(strip_tags($courrier->contenu)),0,100) }}<span>...</span>
+			</div>
+			<div class="col-2 mb-3" style="text-align:right">
+				<a href="{{ route('courrier.show',$courrier->id) }}" style="color: red"> lire plus<a>
+			</div>
+		</div>
+		
+		
+	</td>
 	  <td>
 			<form action="{{ route('courrier.destroy', $courrier->id) }}" method="POST">
-
-				<a class="btn btn-info" href="{{ route('courrier.show',$courrier->id) }}">Montrer</a>
-
-				<a class="btn btn-primary" href="{{ route('courrier.edit',$courrier->id) }}">Editer</a>
+				<div class="row col-md-4 mb-3">
+					<a class="btn btn-primary" href="{{ route('courrier.edit',$courrier->id) }}">‎‎‏‏‎&nbsp;&nbsp;‎‏‏‎‎Editer‏‏‎&nbsp;</a>
+				</div>
+				
 				@csrf
 				@method('DELETE')
-
-				<button type="submit" title="delete" class="btn btn-danger">
-					Supprimer
-				</button>
+				<div class="row col-md-4 mb-3">
+					<button type="submit" title="delete" class="btn btn-danger">
+						Supprimer
+					</button>
+				</div>
 			</form>
 		</td>
     </tr>
