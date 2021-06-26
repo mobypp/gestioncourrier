@@ -57,3 +57,9 @@ Route::resource('organisme', 'OrganismeController');
 Route::get('/notification',function() {
     return view('app.notification.index');
 })->name('notification');
+
+//--Route::get('/profile',function() {
+    //return view('app.profile.index');
+//})->name('profile');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class , 'index'])->name('profile');
+Route::get('editP',[App\Http\Controllers\ProfileController::class,'edit'])->name('profile.edit');
