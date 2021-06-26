@@ -9,7 +9,7 @@ class RoleController extends Controller
 {
     public function index()
 	{
-		// $this->authorize('view', Role::class);
+		$this->authorize('view', Role::class);
 		$data = [
 			'roles' => Role::paginate(5),
 		];
@@ -17,7 +17,7 @@ class RoleController extends Controller
 	}
     public function create()
     {
-        // $this->authorize('create', Role::class);
+        $this->authorize('create', Role::class);
         return view('app.role.create');
     }
     public function store(Request $request)

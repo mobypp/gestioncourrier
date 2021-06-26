@@ -13,11 +13,16 @@ class CourrierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function index()
+    // {
+    //     $courriers = DB::table('courriers')->paginate(3);
+
+    //     return view('app.courrier.index', ['courriers' => $courriers]);
+    // }
     public function index()
     {
-        $courriers = DB::table('courriers')->paginate(3);
-
-        return view('app.courrier.index', ['courriers' => $courriers]);
+        $courriers = Courrier::paginate(6);
+        return view('app.courrier.index', compact('courriers'));
     }
 
     /**
@@ -38,34 +43,18 @@ class CourrierController extends Controller
      */
     public function store(Request $request)
     {
-		
-        // $request->validate([
-		// 	'matricule' => 'required',
-        //     'titre' => 'required',
-		// 	'destination' => 'required',
-		// 	'objet' => 'required',
-		// 	'contenu' => 'required',
-        // ]);
-        // Courrier::create($request->all());
-
-		$path = $request->file('image')->store('public/images');
         $courrier = new courrier();
         $courrier->matricule = $request->input('matricule');
         $courrier->titre = $request->input('titre');
-        $courrier->destination = $request->input('destination');
+        $courrier->organisme_id = $request->input('organisme_id');
         $courrier->objet = $request->input('objet');
         $courrier->contenu = $request->input('contenu');
+		$path = $request->file('image')->store('public/images');
 		$courrier->image = $path;
-      
-      
         $courrier->save();
         session()->flash('success', 'Utilisateur a été bien enregistré !!');
-        // return redirect()->route('user.index');
         $courrier = courrier::find($courrier->id);
         return view('app.courrier.show', ['courrier' => $courrier]);
-
-        // return redirect()->route('courrier.index')
-        // ->with('success','Courrier created successfully.');
     }
 
     /**
@@ -99,15 +88,17 @@ class CourrierController extends Controller
      */
     public function update(Request $request, Courrier $courrier)
     {
-        $request->validate([
-			'matricule' => 'required',
-            'titre' => 'required',
-			'destination' => 'required',
-			'objet' => 'required',
-			'contenu' => 'required',
-        ]);
 
-        $courrier->update($request->all());
+        $courrier = new courrier();
+        $courrier->matricule = $request->input('matricule');
+        $courrier->titre = $request->input('titre');
+        $courrier->organisme_id = $request->input('organisme_id');
+        $courrier->objet = $request->input('objet');
+        $courrier->contenu = $request->input('contenu');
+		$path = $request->file('image')->store('public/images');
+		$courrier->image = $path;
+        $courrier->save();
+
   
         return redirect()->route('courrier.index')
                         ->with('success','Courrier updated successfully');

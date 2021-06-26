@@ -82,7 +82,7 @@
                 <span>{{ __('Courrier') }}</span>
             </a>
         </li>
-		
+        @can('isAdmin')
 		<!-- Nav Item - Organisme -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('organisme.index') }}">
@@ -90,6 +90,9 @@
                 <span>{{ __('Organimse') }}</span>
             </a>
         </li>
+        @endcan
+
+        @can('isAdmin')
 		
         <!-- Nav Item - Division -->
         <li class="nav-item ">
@@ -98,6 +101,9 @@
                 <span>{{ __('Division') }}</span>
             </a>
         </li>
+        @endcan
+
+        @can('isAdmin')
 
         <!-- Nav Item - Service -->
         <li class="nav-item ">
@@ -106,7 +112,9 @@
                 <span>{{ __('Service') }}</span>
             </a>
         </li>
+        @endcan
 
+        @can('isAdmin')
         <!-- Nav Item - Utilisateur -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('user.index') }}">
@@ -114,6 +122,8 @@
                 <span>{{ __('user') }}</span>
             </a>
         </li>
+        @endcan
+        @can('isAdmin')
 
         <!-- Nav Item - Role -->
         <li class="nav-item ">
@@ -122,6 +132,8 @@
                 <span>{{ __('role') }}</span>
             </a>
         </li>
+        @endcan
+
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('notif') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>

@@ -33,7 +33,7 @@
 @method('PUT')
   <div class="form-group">
     <label for="organisme">Organisme</label>
-    <input type="text" class="form-control" value="{{ $organisme->organisme }}" placeholder="Entrer Organisme" name ="organisme">
+    <input type="text" class="form-control" value="{{ $organisme->nom }}" placeholder="Entrer Organisme" name ="nom">
   </div>
 <div class="form-group">
     <label for="localisation">Localisation</label>

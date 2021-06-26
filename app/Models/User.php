@@ -46,7 +46,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast to native noms.
      *
      * @var array
      */
@@ -71,30 +71,30 @@ class User extends Authenticatable
 	 *  -------------------------------------------------
 	 */
 
-    // public function isAdmin()
-    // {
-    //     return $this->Role->type == 'Admin';
-    // }
+    public function isAdmin()
+    {
+        return $this->Role->nom == 'Admin';
+    }
 
-    // public function isBO()
-    // {
-    //     return $this->Role->type == 'BO';
-    // }
+    public function isBO()
+    {
+        return $this->Role->nom == 'BO';
+    }
 
-    // public function isCS()
-    // {
-    //     return $this->Role->type == 'CS';
-    // }
+    public function isCS()
+    {
+        return $this->Role->nom == 'CS';
+    }
 
-    // public function isCD()
-    // {
-    //     return $this->Role->type == 'CD';
-    // }
+    public function isCD()
+    {
+        return $this->Role->nom == 'CD';
+    }
 
-    // public function isUF()
-    // {
-    //     return $this->Role->type == 'UF';
-    // }
+    public function isUF()
+    {
+        return $this->Role->nom == 'UF';
+    }
 
 
 

@@ -12,19 +12,19 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
   
-	// public function __construct()
-	// {
-	//     $this->middleware('auth');
-	// }
+	public function __construct()
+	{
+	    $this->middleware('auth');
+	}
 
     public function create()
     {
-        // $this->authorize('create', User::class);
+        $this->authorize('create', User::class);
         return view('app.user.create');
     }
     public function index()
     {
-        //  $this->authorize('view', User::class);
+         $this->authorize('view', User::class);
         $users = User::paginate(6);
         return view('app.user.index', compact('users'));
     }

@@ -28,11 +28,11 @@
 				<input type="text" class="form-control"  placeholder="Entrer Titre" name ="titre">
 			  </div>
 			  <div class="form-group col-md-4 mb-3">
-				  <select name="destination" class="form-control">
+				  <select name="organisme_id" class="form-control">
 						 <option disabled selected>Selectionner la destination</option>
 						 @foreach((App\Models\Organisme::get()) as $organisme)
 							 <option value="{{ $organisme->id }}">
-								 {{ $organisme->organisme }}
+								 {{ $organisme->nom }}
 							 </option>
 						 @endforeach
 					</select>

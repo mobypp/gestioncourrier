@@ -38,12 +38,16 @@ class OrganismeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'organisme' => 'required',
-            'localisation' => 'required',
-        ]);        
+        // $request->validate([
+        //     'nom' => 'required',
+        //     'localisation' => 'required',
+        // ]);        
 
-        Organisme::create($request->all());
+        // Organisme::create($request->all());
+        $organisme = new Organisme();
+        $organisme->nom = $request->input('nom');
+        $organisme->localisation = $request->input('localisation');
+        $organisme->save();
 
         return redirect()->route('organisme.index')
         ->with('success','Organisme created successfully.');
@@ -81,7 +85,7 @@ class OrganismeController extends Controller
     public function update(Request $request, Organisme $organisme)
     {
         $request->validate([
-            'organisme' => 'required',
+            'nom' => 'required',
             'localisation' => 'required',
         ]);
 

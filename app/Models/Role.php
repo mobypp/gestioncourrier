@@ -30,15 +30,15 @@ class Role extends Model
 	 */
     
 
-    // public function getNameAttribute()
-    // {
-    // 	switch ($this->nom)
-	//     {
-	// 	    case 'Admin': return 'Admin OU Assistant'; break;
-	// 	    case 'BO': return 'Bureau D ordere'; break;
-	// 	    case 'CS': return 'Chef de service'; break;
-	// 	    case 'CD': return 'Chef de Division'; break;
-	// 	    case 'UF': return 'Employée'; 
-	//     }
-    // }
+    public function getNameAttribute()
+    {
+    	switch ($this->nom)
+	    {
+		    case 'Admin': return 'Admin OU Assistant'; break;
+		    case 'BO': return 'Bureau D ordere'; break;
+		    case 'CS': return 'Chef de service'; break;
+		    case 'CD': return 'Chef de Division'; break;
+		    case 'UF': return 'Employée'; 
+	    }
+    }
 }

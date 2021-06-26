@@ -33,7 +33,7 @@
 @foreach ($organismes as $organisme)
     <tr>
       <th scope="row">{{ $organisme->id }}</th>
-      <td>{{ $organisme->organisme }}</td>
+      <td>{{ $organisme->nom }}</td>
       <td>{{ $organisme->localisation }}</td>
       <td>
       <form action="{{ route('organisme.destroy',$organisme->id) }}" method="POST">
