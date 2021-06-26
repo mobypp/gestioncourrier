@@ -8,7 +8,7 @@
         <div class="container">
                 <div class="row">
                 <div class="col-md-8" style="margin-left: 16%">
-            <form  method="POST" action="{{ route('storeS')}}" enctype="multipart/form-data" >
+            <form  method="POST" action="{{ route('service.store')}}" enctype="multipart/form-data" >
                 {{ csrf_field() }}
               <div class="form-group row">
                 <label for="" class="col-md-2 ">Service</label>

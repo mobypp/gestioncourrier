@@ -10,7 +10,7 @@
                     <h1 class=" text-center">La liste des services</h1>
     
                     <div class="btn-group ml-auto">
-                        <a href="/createService" class="btn btn-primary">
+                        <a href="{{ route('service.create')}}" class="btn btn-primary">
                             Ajouter un service
                         </a>
                         

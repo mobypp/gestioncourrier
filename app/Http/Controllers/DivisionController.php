@@ -43,7 +43,7 @@ class DivisionController extends Controller
        
         $division->save();
         session()->flash('success', 'division a été bien enregistré !!');
-        return redirect()->route('division');
+        return redirect()->route('division.index');
     }
     /**
      * Display the specified resource.
@@ -82,7 +82,7 @@ class DivisionController extends Controller
 
         $division->save();
         session()->flash('success', 'division a été bien Modifier !!');
-        return redirect()->route('division');
+        return redirect()->route('division.index');
     }
 
     /**

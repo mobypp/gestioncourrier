@@ -93,7 +93,7 @@
 		
         <!-- Nav Item - Division -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('division') }}">
+            <a class="nav-link" href="{{ route('division.index') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Division') }}</span>
             </a>
@@ -101,7 +101,7 @@
 
         <!-- Nav Item - Service -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('service') }}">
+            <a class="nav-link" href="{{ route('service.index') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Service') }}</span>
             </a>

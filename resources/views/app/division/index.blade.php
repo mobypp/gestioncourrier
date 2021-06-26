@@ -11,7 +11,7 @@
                   <h1 class="text-center">La liste des divisions</h1>
   
                   <div class="btn-group ml-auto">
-                      <a href="/createDivision" class="btn btn-primary">
+                      <a href="{{ route('division.create')}}" class="btn btn-primary">
                           Ajouter une division
                       </a>
                   </div>

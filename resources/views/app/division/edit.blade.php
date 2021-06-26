@@ -7,7 +7,7 @@
     <div class="container">
               <div class="row">
             <div class="col-md-8 offset-md-2">
-        <form  method="POST" action="{{ route('update.division', $division->id) }}" enctype="multipart/form-data" >
+        <form  method="POST" action="{{ route('division.update', $division->id) }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             {{ method_field('PUT') }}
               <div class="form-group row">
