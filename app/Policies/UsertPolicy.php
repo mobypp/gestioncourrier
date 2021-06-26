@@ -24,6 +24,26 @@ class UsertPolicy
             return true;
         return false;
     }
+    public function viewC(User $user)
+    {
+        if ($user->isUF())
+            return true;
+        return false;
+    }
+    public function createC(User $user)
+    {
+        if ($user->isUF())
+            return true;
+        return false;
+    }
+   
+
+    /**
+     * Determine whether the user can create users.
+     *
+     * @param  \App\User $user
+     * @return mixed
+     */
     public function create(User $user)
     {
         if ($user->isAdmin()){
@@ -32,5 +52,35 @@ class UsertPolicy
             return false;
         }
 
+    }
+
+
+    /**
+     * Determine whether the user can update the user.
+     *
+     * @param  \App\User $user
+     * @param  \App\User $user
+     * @return mixed
+     */
+    public function update(User $user)
+    {
+        if ($user->isAdmin())
+            return true;
+        return false;
+    }
+
+
+    /**
+     * Determine whether the user can delete the user.
+     *
+     * @param  \App\User $user
+     * @param  \App\User $user
+     * @return mixed
+     */
+    public function delete(User $user)
+    {
+        if ($user->isAdmin())
+            return true;
+        return false;
     }
 }

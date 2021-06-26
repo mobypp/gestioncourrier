@@ -75,65 +75,64 @@
             </a>
         </li> --}}
 
+        @can('viewC', 'App\Models\User')
         <!-- Nav Item - Courrier -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('courrier.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                {{-- <i class="fas fa-fw fa-hands-env"></i> --}}
+                <i class="fas fa-envelope"></i>
                 <span>{{ __('Courrier') }}</span>
             </a>
         </li>
-        @can('isAdmin')
+        @endcan
+        @can('view', 'App\Models\User')
 		<!-- Nav Item - Organisme -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('organisme.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-briefcase"></i>
                 <span>{{ __('Organimse') }}</span>
             </a>
         </li>
         @endcan
 
-        @can('isAdmin')
-		
+        @can('view', 'App\Models\User')		
         <!-- Nav Item - Division -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('division.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="far fa-building"></i>
                 <span>{{ __('Division') }}</span>
             </a>
         </li>
         @endcan
 
-        @can('isAdmin')
-
+        @can('view', 'App\Models\User')
         <!-- Nav Item - Service -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('service.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-concierge-bell"></i>
                 <span>{{ __('Service') }}</span>
             </a>
         </li>
         @endcan
-
-        @can('isAdmin')
-        <!-- Nav Item - Utilisateur -->
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('user.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('user') }}</span>
-            </a>
-        </li>
-        @endcan
-        @can('isAdmin')
-
+        @can('view', 'App\Models\User')
         <!-- Nav Item - Role -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('role.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fa fa-universal-access" aria-hidden="true"></i>
                 <span>{{ __('role') }}</span>
             </a>
         </li>
         @endcan
 
+        @can('view', 'App\Models\User')
+        <!-- Nav Item - Utilisateur -->
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ route('user.index') }}">
+                <i class="fas fa-users"></i>
+                <span>{{ __('utilisateur') }}</span>
+            </a>
+        </li>
+        @endcan
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('notif') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
@@ -306,8 +305,9 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span>
-                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""><img src="{{ Auth::user()->photo }}" /></figure> --}}
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span> 
+                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="">
+                                <img src="{{ Auth::user()->photo }}" /></figure>
                             {{-- <img src="{{ auth()->user()->photo }}" width="40" height="40"
                                  class="rounded-circle mr-3" /> --}}
                         </a>
@@ -384,7 +384,7 @@
             <div class="modal-footer">
                 <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Annuler') }}</button>
                 <a class="btn btn-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnexion') }}</a>
-                <form id="logout-form" action="" method="POST" style="display: none;">
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
                     @csrf
                 </form>
             </div>

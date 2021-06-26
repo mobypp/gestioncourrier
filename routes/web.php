@@ -11,7 +11,9 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ServiceController;
 
 
+Auth::routes();
 
+// Route::middleware('auth')->group(function (){
 
 Route::get('/', [HomeController::class , 'index'])->name('app');
 // User
@@ -40,3 +42,4 @@ Route::get('/notification',function() {
 Route::get('/notif', [NotificationController::class , 'show'])->name('notif');
 
 Route::get('send', [HomeController::class,'sendNotification']);
+// }
