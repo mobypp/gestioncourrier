@@ -16,7 +16,7 @@
                         <p><span><b>Marrakech le: </b></span>{{ date('Y/m/d', strtotime($courrier->created_at)) }}</p>
                         <p><span><b>Titre: </b></span>{{ $courrier->titre }}</p>
                         <p><span><b>Nom d'organisme: </b></span>{{ $courrier->organisme->nom }}</p>
-                        <p><span><b>Localisation: </b></span>{{ $courrier->organisme->loc }}</p>
+                        <p><span><b>Localisation: </b></span>{{ $courrier->organisme->localisation }}</p>
                     </div>
                 </div>
             </div>

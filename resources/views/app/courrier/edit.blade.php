@@ -31,14 +31,12 @@
 		  </div>
 		  <div class="form-group  col-md-4 mb-3">
 			  <label class="">Destination</label>
-			  <select name="destination" class="form-control">
-					 <option disabled selected>Selectionner la destination</option>
-					 @foreach((App\Models\Organisme::get()) as $organisme)
-						 <option value="{{ $organisme->id }}">
-							 {{ $organisme->organisme }}
-						 </option>
-					 @endforeach
-				</select>
+				  <select name="organisme_id" class="form-control">
+						<option disabled selected>Selectionner la destination</option>
+						@foreach(App\Models\Organisme::all() as $organisme)
+							<option value="{{ $organisme->id }}" {{ (collect(old('organisme_id'))->contains($organisme->id )) ? 'selected':'' }}>{{ $organisme->nom }}</option>
+                       @endforeach
+					</select>
 			</div>
 			</div>
 		<div class="form-row">
@@ -46,6 +44,15 @@
 			<label for="objet">Objet</label>
 			<input type="text" class="form-control" value="{{ $courrier->objet }}" name ="objet">
 		  </div>
+		  
+		<div class="form-group col-md-4 mb-3">
+				<label for="image">Fichier</label>
+                 <input type="file" name="image" class="form-control" value="{{ $courrier->image }}">
+                @error('image')
+                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+               @enderror
+            </div>
+		  
 		  </div>
 		  
 		<div class="form-group">
