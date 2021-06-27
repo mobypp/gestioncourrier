@@ -11,7 +11,7 @@ class Organisme extends Model
 	use HasFactory;
 	
     protected $fillable = [
-        'organisme', 'localisation',
+        'nom', 'localisation',
     ];
 
     public function courriers()

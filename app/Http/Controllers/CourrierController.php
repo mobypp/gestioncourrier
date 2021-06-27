@@ -52,7 +52,7 @@ class CourrierController extends Controller
         $courrier = new courrier();
         $courrier->matricule = $request->input('matricule');
         $courrier->titre = $request->input('titre');
-        $courrier->destination = $request->input('destination');
+        $courrier->organisme_id = $request->input('organisme_id');
         $courrier->objet = $request->input('objet');
         $courrier->contenu = $request->input('contenu');
 		$courrier->image = $path;

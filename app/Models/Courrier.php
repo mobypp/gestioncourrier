@@ -11,7 +11,7 @@ class Courrier extends Model
 	use HasFactory;
 	
     protected $fillable = [
-        'id', 'matricule', 'titre', 'destination', 'objet', 'file', 'contenu', 'etat', 'image',
+        'id', 'matricule', 'titre', 'organisme_id', 'objet', 'file', 'contenu', 'etat', 'image',
     ];
 
     //courrier has one organisme->org-id

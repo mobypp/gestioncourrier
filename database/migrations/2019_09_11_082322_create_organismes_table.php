@@ -15,7 +15,7 @@ class CreateOrganismesTable extends Migration
     {
         Schema::create('organismes', function (Blueprint $table) {
             $table->id();
-            $table->string('organisme');
+            $table->string('nom');
             $table->string('localisation');
             $table->timestamps();
         });
