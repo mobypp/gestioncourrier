@@ -1,12 +1,9 @@
-@extends('theme.admin')
+{{-- @extends('theme.admin')
 
-@section('main-content')
+@section('main-content') --}}
 
 
 <div class="card mt-5">
-    <div class="card-header">
-        Nouveau Organisme
-    </div>
 
     <div class="card-body">
         @if ($errors->any())
@@ -32,8 +29,8 @@
 <form action="{{ route('organisme.store') }}" method="POST">
 @csrf
   <div class="form-group">
-    <label for="organisme">Organisme</label>
-    <input type="text" class="form-control"  placeholder="Entrer Organisme" name ="organisme">
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control"  placeholder="Entrer Nom" name ="nom">
   </div>
   <div class="form-group">
     <label for="localisation">Localisation</label>
@@ -43,4 +40,4 @@
 </form>
 
 
-@endsection
+{{-- @endsection --}}

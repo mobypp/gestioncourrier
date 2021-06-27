@@ -1,11 +1,8 @@
-@extends('theme.admin')
+{{-- @extends('theme.admin')
 
-@section('main-content')
+@section('main-content') --}}
 
 <div class="card mt-5">
-    <div class="card-header">
-        Editer Organisme
-    </div>
 
     <div class="card-body">
         @if ($errors->any())
@@ -32,8 +29,8 @@
 @csrf
 @method('PUT')
   <div class="form-group">
-    <label for="organisme">Organisme</label>
-    <input type="text" class="form-control" value="{{ $organisme->organisme }}" placeholder="Entrer Organisme" name ="organisme">
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control" value="{{ $organisme->nom }}" placeholder="Entrer Nom" name ="nom">
   </div>
 <div class="form-group">
     <label for="localisation">Localisation</label>
@@ -42,4 +39,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-@endsection
+{{-- @endsection --}}

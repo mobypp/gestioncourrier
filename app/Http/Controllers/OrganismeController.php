@@ -39,7 +39,7 @@ class OrganismeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'organisme' => 'required',
+            'nom' => 'required',
             'localisation' => 'required',
         ]);        
 
@@ -81,7 +81,7 @@ class OrganismeController extends Controller
     public function update(Request $request, Organisme $organisme)
     {
         $request->validate([
-            'organisme' => 'required',
+            'nom' => 'required',
             'localisation' => 'required',
         ]);
 
