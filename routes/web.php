@@ -38,6 +38,7 @@ Route::get('/notification',function() {
 // php artisan make:Controller CourrierController
 // php artisan make:migration add_column_service_id_users --table= users
 // php artisan make:migration create_users_table
+// php artisan make:policy CourrierPolicy
 //Notification
 Route::get('/notif', [NotificationController::class , 'show'])->name('notif');
 

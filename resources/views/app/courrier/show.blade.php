@@ -35,7 +35,7 @@
               <div class="col-12 ">
                   <div class="courrier-info ">
                       <p><span><b>signature</b></span></p>
-                      <p><span><b>Nom </b></span>Prenom</p>
+                      <p><span><b>{{ Auth::user()->name}} </b></span>{{Auth::user()->prenom}}</p>
                   </div>
               </div>
             </div>
