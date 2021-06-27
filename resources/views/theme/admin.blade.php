@@ -75,7 +75,7 @@
             </a>
         </li> 
 
-        @can('viewC', 'App\Models\User')
+        @can('view', 'App\Models\Courrier')
         <!-- Nav Item - Courrier -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('courrier.index') }}">

@@ -24,18 +24,7 @@ class UsertPolicy
             return true;
         return false;
     }
-    public function viewC(User $user)
-    {
-        if ($user->isUF())
-            return true;
-        return false;
-    }
-    public function createC(User $user)
-    {
-        if ($user->isUF())
-            return true;
-        return false;
-    }
+   
    
 
     /**

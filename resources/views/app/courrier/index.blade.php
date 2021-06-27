@@ -2,8 +2,7 @@
 
 @section('main-content')
 
-    <!-- Page Heading -->
-    {{-- <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1> --}}
+@can('create', 'App\Models\Courrier')
     <div class="row">
         <div class="col-lg-12 margin-tb">
 			<div class="pull-right">
@@ -11,7 +10,7 @@
             </div>
         </div>
 </div><br>
-
+@endcan
 @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -51,6 +50,7 @@
 		
 		
 	</td>
+@can('viewCrud', 'App\Models\Courrier')
 	  <td>
 			<form action="{{ route('courrier.destroy', $courrier->id) }}" method="POST">
 				<div class="row col-md-4 mb-3">
@@ -66,6 +66,7 @@
 				</div>
 			</form>
 		</td>
+		@endcan
     </tr>
 @endforeach
   </tbody>

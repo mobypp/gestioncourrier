@@ -29,12 +29,38 @@ class CourrierPolicy
     public function view(User $user)
     {
 
-        if ($user->isAdmin() || $user->isUF() || $user->isCD() || $user->isCS() || $user->isBO())
+        if ($user->isUF() || $user->isCD() || $user->isCS() || $user->isBO())
             return true;
 
         return false;
     }
+    public function viewCrud(User $user)
+    {
 
+        if ($user->isUF())
+            return true;
+
+        return false;
+    }
+    public function viewCS(User $user)
+    {
+        if ($user->isCS())
+            return true;
+        return false;
+    }
+    
+    public function viewCD(User $user)
+    {
+        if ($user->isCD())
+            return true;
+        return false;
+    }
+    public function viewBO(User $user)
+    {
+        if ($user->isBO())
+            return true;
+        return false;
+    }
     /**
      * Determine whether the user can create courrier.
      *

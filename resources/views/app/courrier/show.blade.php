@@ -45,9 +45,33 @@
 				
             
           </div>
+@can('viewCrud', 'App\Models\Courrier')
 			<div class="text-center">
 				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Editer</a>
 				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
 			</div><br>
-            </div>
+@endcan
+{{-- Chef Service va voir ca pour valider le courrier et le transferer vers Chef Division --}}
+@can('viewCS', 'App\Models\Courrier')
+            <div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Accepter</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+			</div><br>
+@endcan
+{{-- Chef Division va voir ca pour valider le courrier et le transferer vers Bureau d ordere --}}
+@can('viewCD', 'App\Models\Courrier')
+            <div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Valider</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+			</div><br>
+@endcan
+
+{{-- Bureau d ordere va voir ca pour valider le courrier et le transferer vers Bureau d ordere distinataire par email --}}
+@can('viewBO', 'App\Models\Courrier')
+            <div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Transferer</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+			</div><br>
+@endcan
+</div>
 @endsection
