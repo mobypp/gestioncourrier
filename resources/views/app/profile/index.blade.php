@@ -3,95 +3,40 @@
 @section('main-content')
 
 
-<div class="container">
-    <div class=" courrier-s">
-        <div class="row">
-            <div class="col-8">
-                
-                <div class="profile-img">
-                    <img src="{{ auth()->user()->photo }}" width="40" height="40"
-                    class="rounded-circle mr-3" /> 
-       </a>
-
-       <div class="profile-head">
-                            
-                        
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                
-            </li>
-            
-        </ul>
-    </div>
-                   
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="{{ auth()->user()->photo }}"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Parametres</h4>
                 </div>
-            </div>
-            <div class="col-md-6">
-              
-            </div>
-            <div class="col-md-2">
-              
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Nom :</label><input type="text" class="form-control"  value="{{auth()->user()->name}}"></div>
+                    <div class="col-md-6"><label class="labels">Prenom :</label><input type="text" class="form-control" value="{{auth()->user()->prenom}}" placeholder="surname"></div>
+                </div>
                 
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Téléphone:</label><input type="text" class="form-control"  value="{{auth()->user()->telephone}}"></div>
+                    <div class="col-md-12"><label class="labels">Addresse:</label><input type="text" class="form-control"  value="{{auth()->user()->adresse}}"></div>
+                    <div class="col-md-12"><label class="labels">Adresse-Email:</label><input type="text" class="form-control"  value="{{auth()->user()->email}}"></div>
+
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Enregister</button></div>
             </div>
         </div>
-        <div class="row">
-        
-            <div class="col-md-10">
-                <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label >Nom :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <label>{{ auth()->user()->name}}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Prenom:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <label>{{auth()->user()->prenom}}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Adresse:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <label>{{auth()->user()->adresse}}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>E-mail :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <label>{{ auth()->user()->email}}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>téléphone :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <label>{{auth()->user()->telephone}}</label>
-                            </div>
-                    </div>
-                    
-                
-                    <a href="/editP" class="btn btn-primary  " style="background-color: brown"> Modifier 
-                                </a>
-               
-
-                                
-                                  
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+  
+                <div class="col-md-12"><label class="labels">Service:</label><input type="text" class="form-control"  value="{{auth()->user()->service_id}}" disabled=""></div>
+                    <div class="col-md-12"><label class="labels">Role:</label><input type="text" class="form-control"  value="{{auth()->user()->role_id}}" disabled></div>
             </div>
-   	
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
 @endsection

@@ -62,4 +62,4 @@ Route::get('/notification',function() {
     //return view('app.profile.index');
 //})->name('profile');
 Route::get('/profile', [App\Http\Controllers\ProfileController::class , 'index'])->name('profile');
-Route::get('editP',[App\Http\Controllers\ProfileController::class,'edit'])->name('profile.edit');
+Route::put('/update',[App\Http\Controllers\ProfileController::class,'update'])->name('update.profile');

@@ -16,7 +16,9 @@ class ProfileController extends Controller
     public function index()
     {   
         
-        return view('app.profile.index')->with('users',User::all());
+        
+        $user = User::all();
+        return view('app.profile.index', ['user' => $user]);
     }
 
     /**
@@ -57,9 +59,9 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-       return view('app.profile.edit')->with('user',auth()->user());
+      
     }
 
     /**
@@ -69,9 +71,18 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, $id)
     {
-        //
+        $user = user::find($id);
+       $user->name = $request->input('name');
+         $user->email = $request->input('email');
+         if($request->hasfile('photo')) {
+             $user->photo = $request->photo->store('image');
+         }
+         $user->password = bcrypt($request->input('password'));
+         $user->save();
+         session()->flash('success', 'Profile a été bien Modifier !!');
+        return redirect()->route('profile');
     }
 
     /**
