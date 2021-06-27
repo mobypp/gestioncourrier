@@ -32,7 +32,7 @@
                         <div class="col-md-12"><label class="labels">Addresse:</label><input type="text" name="addresse" class="form-control"  value="{{auth()->user()->adresse}}"></div>
                         <div class="col-md-12"><label class="labels">Adresse-Email:</label><input type="email" name="email" class="form-control"  value="{{auth()->user()->email}}"></div>
                         <div class="col-md-12"><label class="labels">Mot de passe:</label><input type="password" name="password" class="form-control"  value="{{auth()->user()->password}}"></div>
-                        <div class="col-md-12"><label class="labels">Confirmation de mot de passe:</label><input type="password" name="passwordC" class="form-control"  value="{{auth()->user()->password}}"></div>
+                        <div class="col-md-12"><label class="labels">Confirmation de mot de passe:</label><input type="password" class="form-control @if($errors->get('password_confirmation')) is-invalid @endif"  name="password_confirmation"   value="{{auth()->user()->password}}"></div>
                     </div>
                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" style="background-color: maroon">Enregister</button></div>
                 </div>

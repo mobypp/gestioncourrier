@@ -83,7 +83,8 @@ class ProfileController extends Controller
             'telephone' => $request->telephone,
             'email' => $request->email,
             'password' => $request->password,
-            'passwordC' => $request->password,
+            'password_confirmation' => $request->password_confirmation,
+          
         ]);
         
         if($request->file('image') != null){
@@ -102,7 +103,7 @@ class ProfileController extends Controller
     //      if($request->hasfile('photo')) {
     //          $user->photo = $request->photo->store('image');
     //      }
-    //      $user->password = bcrypt($request->input('password'));
+            $user->password = bcrypt($request->input('password'));
     //      $user->save();
     //      session()->flash('success', 'Profile a été bien Modifier !!');
         // dd($user->name);
