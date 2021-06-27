@@ -35,6 +35,10 @@
 								 {{ $organisme->nom }}
 							 </option>
 						 @endforeach
+				  <select name="destination" class="form-control">
+						@foreach(App\Models\Organisme::all() as $organisme)
+							<option value="{{ $organisme->id }}" {{ (collect(old('destination'))->contains($organisme->id )) ? 'selected':'' }}>{{ $organisme->organisme }}</option>
+                       @endforeach
 					</select>
 				</div>
 			</div>

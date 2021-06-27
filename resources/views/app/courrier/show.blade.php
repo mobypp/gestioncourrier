@@ -13,23 +13,22 @@
                 </div>
                 <div class="col-4 align-content-end">
                     <div class="courrier-info ">
-                        <p><span><b>Marrakech le :</b></span>{{ $courrier->created_at }}</p>
-                        <p><span><b>Titre :</b></span>{{ $courrier->titre }}</p>
-                        <p><span><b>Nom d'organisme :</b></span>{{ $courrier->organisme->nom }}</p>
-                        <p><span><b>Localisation :</b></span>{{ $courrier->organisme->localisation }}</p>
+                        <p><span><b>Marrakech le: </b></span>{{ date('Y/m/d', strtotime($courrier->created_at)) }}</p>
+                        <p><span><b>Titre: </b></span>{{ $courrier->titre }}</p>
+                        <p><span><b>Nom d'organisme: </b></span>{{ $courrier->destination }}</p>
+                        <p><span><b>Localisation: </b></span>{{ $courrier->destination }}</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-8 objet">
-                    <p><span><b>Objet :</b></span>{{ $courrier->objet }}</p>
+                    <p><span><b>Objet: </b></span>{{ $courrier->objet }}</p>
                 </div>
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-12 content">
-					{{($courrier->contenu) }}
+					{{ strip_tags($courrier->contenu) }}
                 </div>
-				<img src="{{ Storage::url($courrier->image) }}"/>
             </div>
 
             <div class="row align-content-end">
@@ -40,6 +39,10 @@
                   </div>
               </div>
             </div>
+			
+				
+			{{ Storage::url($courrier->image) }}
+				
             
           </div>
 			<div class="text-center">
