@@ -82,6 +82,8 @@ class ProfileController extends Controller
             'adresse' => $request->addresse,
             'telephone' => $request->telephone,
             'email' => $request->email,
+            'password' => $request->password,
+            'passwordC' => $request->password,
         ]);
         
         if($request->file('image') != null){
@@ -104,7 +106,8 @@ class ProfileController extends Controller
     //      $user->save();
     //      session()->flash('success', 'Profile a été bien Modifier !!');
         // dd($user->name);
-
+        $user->save();
+        session()->flash('success', 'Profile a été bien Modifier !!');
         return redirect()->route('profile');
     }
 
