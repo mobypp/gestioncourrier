@@ -1,11 +1,8 @@
-@extends('theme.admin')
+{{-- @extends('theme.admin')
 
-@section('main-content')
+@section('main-content') --}}
 
 <div class="card mt-5">
-    <div class="card-header">
-        Editer Organisme
-    </div>
 
     <div class="card-body">
         @if ($errors->any())
@@ -42,4 +39,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-@endsection
+{{-- @endsection --}}

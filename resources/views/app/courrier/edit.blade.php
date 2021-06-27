@@ -46,6 +46,15 @@
 			<label for="objet">Objet</label>
 			<input type="text" class="form-control" value="{{ $courrier->objet }}" name ="objet">
 		  </div>
+		  
+		<div class="form-group col-md-4 mb-3">
+				<label for="image">Fichier</label>
+                 <input type="file" name="image" class="form-control" value="{{ $courrier->image }}">
+                @error('image')
+                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+               @enderror
+            </div>
+		  
 		  </div>
 		  
 		<div class="form-group">

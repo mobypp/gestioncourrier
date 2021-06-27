@@ -41,7 +41,7 @@
             </div>
 			
 				
-			{{ Storage::url($courrier->image) }}
+			{{ $courrier->image }}
 				
             
           </div>

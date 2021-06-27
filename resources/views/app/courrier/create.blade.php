@@ -37,7 +37,7 @@
 						 @endforeach
 				  <select name="destination" class="form-control">
 						@foreach(App\Models\Organisme::all() as $organisme)
-							<option value="{{ $organisme->id }}" {{ (collect(old('destination'))->contains($organisme->id )) ? 'selected':'' }}>{{ $organisme->organisme }}</option>
+							<option value="{{ $organisme->id }}" {{ (collect(old('organisme_id'))->contains($organisme->id )) ? 'selected':'' }}>{{ $organisme->nom }}</option>
                        @endforeach
 					</select>
 				</div>
@@ -48,7 +48,13 @@
 			  </div>
 			  
 			<div class="form-group col-md-4 mb-3">
-                 <input type="file" name="image" class="form-control" placeholder="Image">
+				<div class="input-group">
+				  <div class="custom-file">
+					<input type="file" class="custom-file-input" name="image" id="inputGroupFile01"
+					  aria-describedby="inputGroupFileAddon01">
+					<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+				  </div>
+				</div>
                 @error('image')
                   <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                @enderror
