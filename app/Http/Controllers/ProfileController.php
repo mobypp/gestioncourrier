@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -71,17 +72,43 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = user::find($id);
-       $user->name = $request->input('name');
-         $user->email = $request->input('email');
-         if($request->hasfile('photo')) {
-             $user->photo = $request->photo->store('image');
-         }
-         $user->password = bcrypt($request->input('password'));
-         $user->save();
-         session()->flash('success', 'Profile a été bien Modifier !!');
+        $user = User::findOrFail(auth()->user()->id);
+        
+        $user->update([
+            'name' => $request->nom,
+            'prenom' => $request->prenom,
+            'adresse' => $request->addresse,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+            'password' => $request->password,
+            'password_confirmation' => $request->password_confirmation,
+          
+        ]);
+        
+        if($request->file('image') != null){
+            $image = $request->file('image');
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/profile'),$new_name);
+            $user->update(['photo' => $image]);
+        }
+        // $user->name = $request->nom;
+        // $user->prenom = $request->prenom;
+        // $user->adresse = $request->addresse;
+        // $user->telephone = $request->telephone;
+        // $user->email = $request->email;
+        // $user->save();
+    //      $user->email = $request->input('email');
+    //      if($request->hasfile('photo')) {
+    //          $user->photo = $request->photo->store('image');
+    //      }
+            $user->password = bcrypt($request->input('password'));
+    //      $user->save();
+    //      session()->flash('success', 'Profile a été bien Modifier !!');
+        // dd($user->name);
+        $user->save();
+        session()->flash('success', 'Profile a été bien Modifier !!');
         return redirect()->route('profile');
     }
 
