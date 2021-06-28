@@ -51,6 +51,10 @@ Auth::routes(['register' => false]);
 
 Route::resource('courrier', 'CourrierController');
 Route::resource('organisme', 'OrganismeController');
+Route::resource('file', 'FileController');
+
+Route::get('/another_file/{id}/','FileController@AnotherFile')->name('file.anotherFile');
+Route::get('/final/{id}/','FileController@Continue')->name('file.final');
 
 
 

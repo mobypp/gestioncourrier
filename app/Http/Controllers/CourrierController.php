@@ -48,21 +48,19 @@ class CourrierController extends Controller
         // ]);
         // Courrier::create($request->all());
 
-		$path = $request->file('image')->store('public/images');
         $courrier = new courrier();
         $courrier->matricule = $request->input('matricule');
         $courrier->titre = $request->input('titre');
         $courrier->organisme_id = $request->input('organisme_id');
         $courrier->objet = $request->input('objet');
         $courrier->contenu = $request->input('contenu');
-		$courrier->image = $path;
       
       
         $courrier->save();
-        session()->flash('success', 'Utilisateur a été bien enregistré !!');
-        // return redirect()->route('user.index');
+        session()->flash('success', 'Le courrier a été bien enregistré');
+
         $courrier = courrier::find($courrier->id);
-        return view('app.courrier.show', ['courrier' => $courrier]);
+        return view('app.file.create', ['courrier' => $courrier]);
 
         // return redirect()->route('courrier.index')
         // ->with('success','Courrier created successfully.');
@@ -109,8 +107,8 @@ class CourrierController extends Controller
 
         $courrier->update($request->all());
   
-        return redirect()->route('courrier.index')
-                        ->with('success','Courrier updated successfully');
+        $courrier = courrier::find($courrier->id);
+        return view('app.file.create', ['courrier' => $courrier]);
     }
 
     /**

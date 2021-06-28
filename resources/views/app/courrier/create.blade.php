@@ -40,19 +40,7 @@
 			  <div class="form-group col-md-8 mb-3">
 				<input type="text" class="form-control"  placeholder="Entrer Objet" name ="objet">
 			  </div>
-			  
-			<div class="form-group col-md-4 mb-3">
-				<div class="input-group mb-3">
-				  <div class="input-group-prepend">
-					<span class="input-group-text"><i class="fa fa-file-text-o"></i></span>
-				  </div>
-					  <div class="custom-file">
-						<input type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
-						<label class="custom-file-label" for="customFileInput">Selectionner le fichier</label>
-					</div>
-				  </div>
-				  </div>
-            </div>
+			</div>
 			  
 			<div class="form-group">
 				<textarea class="ckeditor form-control" name="contenu"></textarea>
@@ -65,15 +53,5 @@
         </form>
     </div>
 </div>
-
-
-
-  <script>
-	document.querySelector('.custom-file-input').addEventListener('change', function (e) {
-	  var name = document.getElementById("customFileInput").files[0].name;
-	  var nextSibling = e.target.nextElementSibling
-	  nextSibling.innerText = name
-	})
-  </script>
 
 @endsection
