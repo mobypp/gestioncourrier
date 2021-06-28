@@ -5,26 +5,28 @@
 <main class="site-content">
   <div class="container" id="app">
       <div class="row">
-          <div class="col-12">
+          <div class="col-10">
           @include('partials.flash')
-              <div class="d-flex align-items-center mb-4">
-                  <h1 class="text-center">La liste des divisions</h1>
+          @include('style')
+          <div class="d-flex justify-content-between align-items-center mb-4" >
+                  <h1 class="text-center" >La liste des divisions :</h1>
   
                   <div class="btn-group ml-auto">
-                      <a href="/createDivision" class="btn btn-primary">
+                  
+                    <a href="/createDivision" class="btn btn-primary"   style="background-color: #e09e74de">
                           Ajouter une division
                       </a>
                   </div>
               </div>
   
-              <div class="table-responsive">
-              <table class="table table-hover">
-                  <thead class="bg-light">
+              <div class="table-center  ">
+              <table  class="table table-bordered ">
+                  <thead >
                   <tr>
-                      <th scope="col">Division</th>
+                      <th ><label >Division</label></th>
                       
 
-                      <th scope="col" colspan="2">Actions</th>
+                      <th ><label >Actions</label></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -33,11 +35,11 @@
                           
                              
                           </td>
-                          <td>{{$division->nomdivision}}</td>
+                          <td scope="col">{{$division->nomdivision}}</td>
                           
-                          <td>
+                          <td scope="col">
                               <a href="{{ route('division.edit',$division->id) }}" role="button"
-                                 class="btn btn-info ">
+                                 class="btn btn-info "   style="background-color: #F4C7AB">
                                   Modifier
                               </a>
                           </td>
