@@ -11,7 +11,7 @@ class Courrier extends Model
 	use HasFactory;
 	
     protected $fillable = [
-        'id', 'matricule', 'titre', 'organisme_id', 'objet', 'file', 'contenu', 'etat', 'image',
+        'id', 'matricule', 'titre', 'organisme_id', 'objet', 'file', 'contenu', 'etat',
     ];
 
     //courrier has one organisme->org-id
@@ -19,5 +19,10 @@ class Courrier extends Model
    public function organisme()
    {
     return $this->belongsTo(Organisme::class);     
+   }
+
+   public function files()
+   {
+    return $this->hasMany(File::class);     
    }
 }

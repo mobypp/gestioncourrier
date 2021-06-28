@@ -40,21 +40,7 @@
 			  <div class="form-group col-md-8 mb-3">
 				<input type="text" class="form-control"  placeholder="Entrer Objet" name ="objet">
 			  </div>
-			  
-			<div class="form-group col-md-4 mb-3">
-				<div class="input-group">
-				  <div class="custom-file">
-					<input type="file" class="custom-file-input" name="image" id="inputGroupFile01"
-					  aria-describedby="inputGroupFileAddon01">
-					<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-				  </div>
-				</div>
-                @error('image')
-                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-               @enderror
-            </div>
-			  
-			 </div>
+			</div>
 			  
 			<div class="form-group">
 				<textarea class="ckeditor form-control" name="contenu"></textarea>

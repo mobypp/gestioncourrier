@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourriersTable extends Migration
+class CreateFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreateCourriersTable extends Migration
      */
     public function up()
     {
-        Schema::create('courriers', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-			$table->string('matricule');
-            $table->string('titre');
-			$table->unsignedBigInteger('organisme_id');
+            $table->string('nom');
+            $table->string('chemin');
+            $table->string('extension');
+			$table->unsignedBigInteger('courrier_id');
 
-			$table->foreign('organisme_id')
+			$table->foreign('courrier_id')
 				->references('id')
-				->on('organismes')
+				->on('courriers')
 				->onDelete('cascade');
-				
-			$table->string('objet');
-            $table->text('contenu');
-            $table->boolean('etat')->default('1');
+
             $table->timestamps();
         });
     }
@@ -38,6 +36,6 @@ class CreateCourriersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courriers');
+        Schema::dropIfExists('files');
     }
 }
