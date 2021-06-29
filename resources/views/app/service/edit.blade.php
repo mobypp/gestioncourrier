@@ -43,7 +43,7 @@
            
                 
   
-            <button type="submit" class="btn btn-primary col-md-12">Enregistrer</button>
+            <button type="submit" class="btn btn-primary " style="background-color:rgb(184, 87, 87)">Enregistrer</button>
           </form>
   
           </div>

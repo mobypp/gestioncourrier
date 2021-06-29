@@ -31,17 +31,29 @@
                 </div>
             </div>
 
-            <div class="row align-content-end">
-              <div class="col-12 ">
+
+
+            <div class="row">
+                <div class="col-6">
+                    @foreach($courrier->files as $file)
+                    <div class="row">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-file-text-o"></i></span>
+                            </div>
+
+                            <input type="text" class="form-control" placeholder="{{ $file->nom }}.{{ $file->extension }}" aria-describedby="basic-addon1" disabled>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+              <div class="col-12 align-content-end">
                   <div class="courrier-info ">
                       <p><span><b>signature</b></span></p>
                       <p><span><b>{{ Auth::user()->name}} </b></span>{{Auth::user()->prenom}}</p>
                   </div>
               </div>
             </div>
-			
-				
-			{{ $courrier->image }}
 				
             
           </div>

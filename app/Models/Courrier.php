@@ -18,7 +18,7 @@ class Courrier extends Model
 
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id', 'matricule', 'titre', 'organisme_id', 'objet', 'file', 'contenu', 'etat', 'image',
+        'id', 'matricule', 'titre', 'organisme_id', 'objet', 'file', 'contenu', 'etat',
     ];
 
     protected $appends = ['assigned_user'];
@@ -109,4 +109,13 @@ class Courrier extends Model
     {
     	return $this->AssignedUser()->first();
     }
+//    public function organisme()
+//    {
+//     return $this->belongsTo(Organisme::class);     
+//    }
+
+   public function files()
+   {
+    return $this->hasMany(File::class);     
+   }
 }

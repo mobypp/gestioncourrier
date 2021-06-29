@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
 			<div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('courrier.create') }}">Ajouter</a>
+                <a class="btn btn-success" href="{{ route('courrier.create') }}">Ajouter</a>
             </div>
         </div>
 </div><br>
@@ -44,7 +44,9 @@
 				<b>Contenu: </b>{{ substr(trim(strip_tags($courrier->contenu)),0,100) }}<span>...</span>
 			</div>
 			<div class="col-2 mb-3" style="text-align:right">
-				<a href="{{ route('courrier.show',$courrier->id) }}" style="color: red"> lire plus<a>
+				<a href="{{ route('courrier.show',$courrier->id) }}" style="color: red">
+				<button type="button" class="btn btn-outline-info">Lire plus</button>
+				<a>
 			</div>
 		</div>
 		

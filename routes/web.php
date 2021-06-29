@@ -37,6 +37,14 @@ Route::post('enregistrer', [CourrierController::class , 'enregistrer'])->name('e
 Route::put('accepter', [CourrierController::class , 'accepter'])->name('accepter');
 Route::put('valider', [CourrierController::class , 'valider'])->name('valider');
 Route::put('finish', [CourrierController::class , 'finish'])->name('finish');
+// Courrier et organisme
+
+Route::resource('courrier', 'CourrierController');
+Route::resource('organisme', 'OrganismeController');
+Route::resource('file', 'FileController');
+
+Route::get('/another_file/{id}/','FileController@AnotherFile')->name('file.anotherFile');
+Route::get('/final/{id}/','FileController@Continue')->name('file.final');
 
 
 // Route::get('/notification',function() {

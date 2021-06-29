@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Division;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules\Unique;
+use League\CommonMark\Extension\Table\Table;
 
 class DivisionController extends Controller
 {
@@ -37,10 +41,15 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
+       
+       // $this->validate($request,[
+            //'nomDivision'=>'required|nomDivision|unique:divisions',
+        //]);
+
         $division = new Division();
         $division->nomdivision = $request->input('nomdivision');
-        
        
+     
         $division->save();
         session()->flash('success', 'division a été bien enregistré !!');
         return redirect()->route('division.index');
@@ -77,6 +86,7 @@ class DivisionController extends Controller
      */
     public function update($id,Request $request)
     {
+        
         $division = Division::find($id);
         $division->nomdivision = $request->input('nomdivision');
 

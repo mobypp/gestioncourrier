@@ -36,7 +36,7 @@
     <label for="localisation">Localisation</label>
     <input type="text" class="form-control"  placeholder="Entrer Localisation" name ="localisation">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" style="background-color: rgb(184, 87, 87)">Enregistrer</button>
 </form>
 
 

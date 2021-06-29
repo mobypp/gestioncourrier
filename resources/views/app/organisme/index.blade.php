@@ -5,11 +5,12 @@
     <!-- Page Heading -->
     {{-- <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1> --}}
 	<div class="row">
+        <h1 class="text-center">La liste des Organismes :</h1>
 			<div class="col-lg-12 margin-tb">
 				<div class="pull-right">
 					<a class="btn btn-success text-light" data-toggle="modal" id="mediumButton" data-target="#mediumModal"
-						data-attr="{{ route('organisme.create') }}" title="Create a organisme"> <i class="fas fa-plus-circle"></i>
-					</a>
+						data-attr="{{ route('organisme.create') }}" title="Create a organisme"> 
+					Ajouter un organisme</a>
 				</div>
 			</div>
 		</div><br>
@@ -24,8 +25,9 @@
 
 <table class="table table-striped table-bordered">
   <thead>
+      @include('style')
     <tr>
-      <th scope="col">#</th>
+      
       <th scope="col">Nom</th>
       <th scope="col">Localisation</th>
       <th scope="col">Actions</th>
@@ -34,7 +36,7 @@
   <tbody>
 @foreach ($organismes as $organisme)
     <tr>
-      <th scope="row">{{ $organisme->id }}</th>
+      
       <td>{{ $organisme->nom }}</td>
       <td>{{ $organisme->localisation }}</td>
 	<td>
@@ -60,7 +62,7 @@
   </tbody>
 </table>
 
-{{ $organismes->links() }}
+{{ $organismes->links("pagination::bootstrap-4") }}
 
 <!-- small modal -->
     <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"

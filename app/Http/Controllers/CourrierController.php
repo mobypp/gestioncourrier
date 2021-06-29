@@ -40,6 +40,16 @@ class CourrierController extends Controller
         session()->flash('success', 'Courrier a été bien enregistré !!');
         $courrier = courrier::find($courrier->id);
         return view('app.courrier.show', ['courrier' => $courrier]);
+      
+      
+        $courrier->save();
+        session()->flash('success', 'Le courrier a été bien enregistré');
+
+        $courrier = courrier::find($courrier->id);
+        return view('app.file.create', ['courrier' => $courrier]);
+
+        // return redirect()->route('courrier.index')
+        // ->with('success','Courrier created successfully.');
     }
 // enregistrer courrier et notifier Chef Service
     public function enregistrer(Request $request){
@@ -76,8 +86,8 @@ class CourrierController extends Controller
         $courrier->save();
 
   
-        return redirect()->route('courrier.index')
-                        ->with('success','Courrier updated successfully');
+        $courrier = courrier::find($courrier->id);
+        return view('app.file.create', ['courrier' => $courrier]);
     }
 
     /**

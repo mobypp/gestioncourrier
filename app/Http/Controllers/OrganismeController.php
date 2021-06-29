@@ -50,7 +50,7 @@ class OrganismeController extends Controller
         $organisme->save();
 
         return redirect()->route('organisme.index')
-        ->with('success','Organisme created successfully.');
+        ->with('success', 'organisme a été bien Enregistrer !!');
     }
 
     /**
@@ -92,7 +92,7 @@ class OrganismeController extends Controller
         $organisme->update($request->all());
   
         return redirect()->route('organisme.index')
-                        ->with('success','Organisme updated successfully');
+                        ->with('success','organisme a été bien Modifier !!');
     }
 
     /**
@@ -106,6 +106,6 @@ class OrganismeController extends Controller
         $organisme->delete();
   
         return redirect()->route('organisme.index')
-                        ->with('success','Organisme deleted successfully');
+                        ->with('success','Organisme a été bien supprimer !!');
     }
 }
