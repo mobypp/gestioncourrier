@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Courrier_User extends Model
+class User_Courrier extends Model
 {
     use HasFactory;
 
     public $table = "user_courrier";
 
-    // use SoftDeletes;
+    use SoftDeletes;
 
-    // protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 }

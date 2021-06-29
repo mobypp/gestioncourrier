@@ -65,6 +65,19 @@ class User extends Authenticatable
       {
           return $this->belongsTo('App\Models\Service');
       }
+    //     
+    // public function courriers()
+    // {
+    //     return $this->belongsToMany('App\Models\Courrier');
+    // }
+    public  function courriers()
+    {
+        return $this->belongsToMany(Courrier::class,'user_courrier');
+    }
+     public function Employee(){
+        return $this->belongsToMany(Courrier::class, 'user_courrier', 'user_id')->withPivot(['accepted_at', 'validated_at','finished_at']);
+       
+    }
 
       /*
 	 *  Helpers

@@ -133,12 +133,12 @@
             </a>
         </li>
         @endcan
-        <li class="nav-item ">
+        {{-- <li class="nav-item ">
             <a class="nav-link" href="{{ route('notif') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('notif') }}</span>
             </a>
-        </li>
+        </li> --}}
         <!-- Nav Item - About -->
         {{-- <li class="nav-item ">
             <a class="nav-link" href="#">
@@ -212,7 +212,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
+                            <span class="badge badge-danger badge-counter">
+                            {{count(Auth()->user()->unreadNotifications) }}
+
+                            </span>
                         </a>
                         <!-- Dropdown - Alerts -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -240,7 +243,7 @@
                                     notification2
                                 </div>
                             </a>
-                            <a class="nav-link" href="{{ route('notification') }}">show all </a>
+                            <a class="nav-link" href="{{ route('app.notifications') }}">show all </a>
                         </div>
                     </li>
 

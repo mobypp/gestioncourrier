@@ -47,8 +47,15 @@
           </div>
 @can('viewCrud', 'App\Models\Courrier')
 			<div class="text-center">
-				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Editer</a>
-				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}">Editer</a>
+                <form action="{{ route('enregistrer') }}" method="post" enctype="multipart/form-data">
+                    {{-- <form enctype="multipart/form-data" action="{{ route('courrier.update',$courrier->id) }}" method="POST"> --}}
+                        @csrf
+                        {{-- @method('PUT') --}}
+                    <input type="hidden" value="{{$courrier->id}}" name="id_co" />
+
+                    <button type="submit" class="btn btn-primary btn-lg">Enregidtrer</button>
+                </form>
 			</div><br>
 @endcan
 {{-- Chef Service va voir ca pour valider le courrier et le transferer vers Chef Division --}}

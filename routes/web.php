@@ -31,16 +31,24 @@ Route::resource('service', 'ServiceController');
 
 Auth::routes(['register' => false]);
 
-Route::get('/notification',function() {
-    return view('app.notification.index');
-})->name('notification');
+Route::get('notifications', [NotificationController::class , 'index'])->name('app.notifications');
+Route::get('notifications/{id}/{ide}', [NotificationController::class , 'show'])->name('app.notifications.show');
+Route::post('enregistrer', [CourrierController::class , 'enregistrer'])->name('enregistrer');
+Route::put('accepter', [CourrierController::class , 'accepter'])->name('accepter');
+Route::put('valider', [CourrierController::class , 'valider'])->name('valider');
+Route::put('finish', [CourrierController::class , 'finish'])->name('finish');
+
+
+// Route::get('/notification',function() {
+//     return view('app.notification.index');
+// })->name('notification');
 
 // php artisan make:Controller CourrierController
 // php artisan make:migration add_column_service_id_users --table= users
 // php artisan make:migration create_users_table
 // php artisan make:policy CourrierPolicy
 //Notification
-Route::get('/notif', [NotificationController::class , 'show'])->name('notif');
+// Route::get('/notif', [NotificationController::class , 'show'])->name('notif');
 
 Route::get('send', [HomeController::class,'sendNotification']);
 // }
