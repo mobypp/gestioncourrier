@@ -14,7 +14,7 @@ class CreateOrganismesTable extends Migration
     public function up()
     {
         Schema::create('organismes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nom');
             $table->string('localisation');
             $table->timestamps();
