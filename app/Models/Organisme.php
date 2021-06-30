@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Models;
-use App\Models\Courrier;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Courrier;
 
 class Organisme extends Model
 {
@@ -16,6 +17,6 @@ class Organisme extends Model
 
     public function courriers()
     {
-     return $this->hasMany(Courrier::class);     
+     return $this->hasMany('App\Models\Courrier');     
     }
 }

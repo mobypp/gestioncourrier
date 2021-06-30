@@ -17,7 +17,10 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in as!') }}
+    <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span>
+    <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->role->nom }}</span>
+
                 </div>
             </div>
         </div>

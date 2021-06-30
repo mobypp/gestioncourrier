@@ -31,12 +31,14 @@
 		  </div>
 		  <div class="form-group  col-md-4 mb-3">
 			  <label class="">Destination</label>
-				  <select name="organisme_id" class="form-control">
-						<option disabled selected>Selectionner la destination</option>
-						@foreach(App\Models\Organisme::all() as $organisme)
-							<option value="{{ $organisme->id }}" {{ (collect(old('organisme_id'))->contains($organisme->id )) ? 'selected':'' }}>{{ $organisme->nom }}</option>
-                       @endforeach
-					</select>
+			  <select name="organisme_id" class="form-control">
+					 <option disabled selected>Selectionner la destination</option>
+					 @foreach((App\Models\Organisme::get()) as $organisme)
+						 <option value="{{ $organisme->id }}">
+							 {{ $organisme->nom }}
+						 </option>
+					 @endforeach
+				</select>
 			</div>
 			</div>
 		<div class="form-row">

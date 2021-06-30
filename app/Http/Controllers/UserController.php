@@ -12,26 +12,26 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
   
-	// public function __construct()
-	// {
-	//     $this->middleware('auth');
-	// }
+	public function __construct()
+	{
+	    $this->middleware('auth');
+	}
 
     public function create()
     {
-        // $this->authorize('create', User::class);
+        $this->authorize('create', User::class);
         return view('app.user.create');
     }
     public function index()
     {
-        //  $this->authorize('view', User::class);
+         $this->authorize('view', User::class);
         $users = User::paginate(6);
         return view('app.user.index', compact('users'));
     }
 
     public function edit($id)
     {
-        // $this->authorize('update', User::class);
+        $this->authorize('update', User::class);
         $user = user::find($id);
         return view('app.user.edit', ['user' => $user]);  
     }
@@ -67,6 +67,8 @@ class UserController extends Controller
 
     public function update($id, Request $request)
     {
+        $this->authorize('update', User::class);
+
         $user = user::find($id);
         $user->name = $request->input('name');
         $user->prenom = $request->input('prenom');
@@ -109,6 +111,8 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('delete', User::class);
+
         $user = User::find($id);
 		// $mytime = Carbon::now();
 		// if($user) {

@@ -8,7 +8,7 @@
   <div class="container">
             <div class="row">
           <div class="col-md-8 offset-md-2">
-            <form  method="POST" action="{{ route('update.service', $services->id) }}" enctype="multipart/form-data" >
+            <form  method="POST" action="{{ route('service.update', $services->id) }}" enctype="multipart/form-data" >
               {{ csrf_field() }}
               {{ method_field('PUT') }}
                 <div class="form-group row">
@@ -43,7 +43,7 @@
            
                 
   
-            <button type="submit" class="btn btn-primary col-md-12">Enregistrer</button>
+            <button type="submit" class="btn btn-primary " style="background-color:rgb(184, 87, 87)">Enregistrer</button>
           </form>
   
           </div>

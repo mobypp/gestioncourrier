@@ -29,14 +29,14 @@
 @csrf
 @method('PUT')
   <div class="form-group">
-    <label for="nom">Nom</label>
-    <input type="text" class="form-control" value="{{ $organisme->nom }}" placeholder="Entrer Nom" name ="nom">
+    <label for="organisme">Organisme</label>
+    <input type="text" class="form-control" value="{{ $organisme->nom }}" placeholder="Entrer Organisme" name ="nom">
   </div>
 <div class="form-group">
     <label for="localisation">Localisation</label>
     <input type="text" class="form-control" value="{{ $organisme->localisation }}" placeholder="Entrer Localisation" name ="localisation">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" style="background-color:rgb(184, 87, 87)">Enregistrer</button>
 </form>
 
 {{-- @endsection --}}

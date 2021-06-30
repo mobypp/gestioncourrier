@@ -50,16 +50,47 @@
               <div class="col-12 align-content-end">
                   <div class="courrier-info ">
                       <p><span><b>signature</b></span></p>
-                      <p><span><b>Nom </b></span>Prenom</p>
+                      <p><span><b>{{ Auth::user()->name}} </b></span>{{Auth::user()->prenom}}</p>
                   </div>
               </div>
             </div>
 				
             
           </div>
+@can('viewCrud', 'App\Models\Courrier')
 			<div class="text-center">
-				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Editer</a>
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}">Editer</a>
+                <form action="{{ route('enregistrer') }}" method="post" enctype="multipart/form-data">
+                    {{-- <form enctype="multipart/form-data" action="{{ route('courrier.update',$courrier->id) }}" method="POST"> --}}
+                        @csrf
+                        {{-- @method('PUT') --}}
+                    <input type="hidden" value="{{$courrier->id}}" name="id_co" />
+
+                    <button type="submit" class="btn btn-primary btn-lg">Enregidtrer</button>
+                </form>
+			</div><br>
+@endcan
+{{-- Chef Service va voir ca pour valider le courrier et le transferer vers Chef Division --}}
+@can('viewCS', 'App\Models\Courrier')
+            <div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Accepter</a>
 				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
 			</div><br>
-            </div>
+@endcan
+{{-- Chef Division va voir ca pour valider le courrier et le transferer vers Bureau d ordere --}}
+@can('viewCD', 'App\Models\Courrier')
+            <div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Valider</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+			</div><br>
+@endcan
+
+{{-- Bureau d ordere va voir ca pour valider le courrier et le transferer vers Bureau d ordere distinataire par email --}}
+@can('viewBO', 'App\Models\Courrier')
+            <div class="text-center">
+				<a class="btn btn-secondary btn-lg" href="{{ route('courrier.edit',$courrier->id) }}"> Transferer</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('courrier.index') }}"> Ok</a>
+			</div><br>
+@endcan
+</div>
 @endsection

@@ -8,7 +8,7 @@
         <div class="container">
                 <div class="row">
                 <div class="col-md-8" style="margin-left: 16%">
-            <form  method="POST" action="{{ route('storeD')}}" enctype="multipart/form-data" >
+            <form  method="POST" action="{{ route('division.store')}}" enctype="multipart/form-data" >
                 {{ csrf_field() }}
               <div class="form-group row">
                 <label for="" class="col-md-2 ">Division</label>
@@ -30,7 +30,7 @@
               
                       
              
-                   <button type="submit" class="btn btn-primary ">Enregistrer</button> 
+                   <button type="submit" class="btn btn-primary " style="background-color: rgb(184, 87, 87)">Enregistrer</button> 
             </form>
             </div>
             </div>

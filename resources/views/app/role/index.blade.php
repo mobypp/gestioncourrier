@@ -5,34 +5,35 @@
     <!-- Page Heading -->
     <div class="d-flex align-items-center mb-4">
         @include('partials.flash')
+        @include('style')
 
-      <h1 class="h4 text-muted">La liste des roles</h1>
+      <h1 class="text-center">La liste des roles :</h1>
 
       <div class="btn-group ml-auto" >
-          <a href="{{ route('role.create')}}" class="list-group-item list-group-item-action active" aria-current="true">
+          <a href="{{ route('role.create')}}"  aria-current="true" class="btn btn-primary" style="background-color: #e09e74de">
             Ajouter une role
           </a>
       </div>
   </div>
-  <table class="table table-striped table-hover">
-    <thead class="table-dark">
+  <table class="table table-bordered ">
+    <thead >
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">Role</th>
-        <th scope="col"># d'utilisateur</th>
-        <th scope="col">Actions</th>
+        <th scope="col" >#</th>
+        <th scope="col"  >Role</th>
+        <th scope="col"   ># d'utilisateur</th>
+        <th scope="col"   >Actions</th>
     </tr>
     </thead>
     <tbody>
 
         @forelse ($roles as $role)
         <tr>
-            <td>{{ $role->id }}</td>
-            <td>{{ $role->nom }}</td>
-            <td>{{ $role->users()->count() }}</td>
-            <td>
-                <a  class="btn active btn-dark btn-sm" disabled
-                 aria-current="true" data-toggle="modal" data-target="#b{{ $role->id }}" role="button">
+            <td >{{ $role->id }}</td>
+            <td >{{ $role->nom }}</td>
+            <td >{{ $role->users()->count() }}</td>
+            <td >
+                <a  class="btn btn-info" disabled
+                 aria-current="true" data-toggle="modal" data-target="#b{{ $role->id }}" role="button" style="background-color: #F4C7AB">
                  modifer
                 </a>
 
@@ -61,14 +62,14 @@
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" style="background-color:rgb(184, 87, 87)">
                                         Enregistrer
                                     </button>
                                 </form>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
+                                <button type="button" class="btn btn-secondary"  style="background-color:rgb(184, 87, 87)"
                                         data-dismiss="modal">Close
                                 </button>
                             </div>

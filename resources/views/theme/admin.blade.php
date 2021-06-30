@@ -76,59 +76,70 @@
             </a>
         </li> -->
 
+        @can('view', 'App\Models\Courrier')
         <!-- Nav Item - Courrier -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('courrier.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                {{-- <i class="fas fa-fw fa-hands-env"></i> --}}
+                <i class="fas fa-envelope"></i>
                 <span>{{ __('Courrier') }}</span>
             </a>
         </li>
-		
+        @endcan
+        @can('view', 'App\Models\User')
 		<!-- Nav Item - Organisme -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('organisme.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fas fa-briefcase"></i>
                 <span>{{ __('Organimse') }}</span>
             </a>
         </li>
-		
+        @endcan
+
+        @can('view', 'App\Models\User')		
         <!-- Nav Item - Division -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('division') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+            <a class="nav-link" href="{{ route('division.index') }}">
+                <i class="far fa-building"></i>
                 <span>{{ __('Division') }}</span>
             </a>
         </li>
+        @endcan
 
+        @can('view', 'App\Models\User')
         <!-- Nav Item - Service -->
         <li class="nav-item ">
-            <a class="nav-link" href="{{ route('service') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+            <a class="nav-link" href="{{ route('service.index') }}">
+                <i class="fas fa-concierge-bell"></i>
                 <span>{{ __('Service') }}</span>
             </a>
         </li>
-
-        <!-- Nav Item - Utilisateur -->
-        <li class="nav-item ">
-            <a class="nav-link" href="{{ route('user.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('user') }}</span>
-            </a>
-        </li>
-
+        @endcan
+        @can('view', 'App\Models\User')
         <!-- Nav Item - Role -->
         <li class="nav-item ">
             <a class="nav-link" href="{{ route('role.index') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
+                <i class="fa fa-universal-access" aria-hidden="true"></i>
                 <span>{{ __('role') }}</span>
             </a>
         </li>
+        @endcan
+
+        @can('view', 'App\Models\User')
+        <!-- Nav Item - Utilisateur -->
         <li class="nav-item ">
+            <a class="nav-link" href="{{ route('user.index') }}">
+                <i class="fas fa-users"></i>
+                <span>{{ __('utilisateur') }}</span>
+            </a>
+        </li>
+        @endcan
+        {{-- <li class="nav-item ">
             <a class="nav-link" href="{{ route('notif') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('notif') }}</span>
             </a>
-        </li>
+        </li> --}}
         <!-- Nav Item - About -->
         {{-- <li class="nav-item ">
             <a class="nav-link" href="#">
@@ -202,7 +213,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
+                            <span class="badge badge-danger badge-counter">
+                            {{count(Auth()->user()->unreadNotifications) }}
+
+                            </span>
                         </a>
                         <!-- Dropdown - Alerts -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -230,19 +244,19 @@
                                     notification2
                                 </div>
                             </a>
-                            <a class="nav-link" href="{{ route('notification') }}">show all </a>
+                            <a class="nav-link" href="{{ route('app.notifications') }}">show all </a>
                         </div>
                     </li>
 
                     <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
+                    <!--li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
-                            <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
+                            -- Counter - Messages -->
+                            <!--span class="badge badge-danger badge-counter">7</span>
                         </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                        <-- Dropdown - Messages -->
+                        <!--div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                             <h6 class="dropdown-header">
                                 Message Center
                             </h6>
@@ -292,11 +306,12 @@
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
-                    <!-- Nav Item - User Information -->
+                    <-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span>
-                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial=""><img src="{{ Auth::user()->photo }}" /></figure> --}}
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ Auth::user()->name }}</span> 
+                            <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="">
+                                <img src="{{ Auth::user()->photo }}" /></figure>
                             {{-- <img src="{{ auth()->user()->photo }}" width="40" height="40"
                                  class="rounded-circle mr-3" /> --}}
                         </a>
@@ -373,7 +388,7 @@
             <div class="modal-footer">
                 <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Annuler') }}</button>
                 <a class="btn btn-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Déconnexion') }}</a>
-                <form id="logout-form" action="" method="POST" style="display: none;">
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
                     @csrf
                 </form>
             </div>

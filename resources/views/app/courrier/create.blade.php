@@ -29,7 +29,13 @@
 			  </div>
 			  <div class="form-group col-sm mb-3">
 				  <select name="organisme_id" class="form-control">
-						<option disabled selected>Selectionner la destination</option>
+						 <option disabled selected>Selectionner la destination</option>
+						 @foreach((App\Models\Organisme::get()) as $organisme)
+							 <option value="{{ $organisme->id }}">
+								 {{ $organisme->nom }}
+							 </option>
+						 @endforeach
+				  <select name="destination" class="form-control">
 						@foreach(App\Models\Organisme::all() as $organisme)
 							<option value="{{ $organisme->id }}" {{ (collect(old('organisme_id'))->contains($organisme->id )) ? 'selected':'' }}>{{ $organisme->nom }}</option>
                        @endforeach

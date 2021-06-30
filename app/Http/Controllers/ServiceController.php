@@ -45,7 +45,7 @@ class ServiceController extends Controller
     
         $service->save();
         session()->flash('success', 'service a été bien enregistré !!');
-        return redirect()->route('service');
+        return redirect()->route('service.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class ServiceController extends Controller
 
         $service->save();
         session()->flash('success', 'Service a été bien Modifier !!');
-        return redirect()->route('service');
+        return redirect()->route('service.index');
     }
 
     /**
@@ -90,6 +90,6 @@ class ServiceController extends Controller
         
         $service = Service::find($id);
 	    $service->delete();
-        return redirect()->route('service');
+        return redirect()->route('service.index');
     }
 }
