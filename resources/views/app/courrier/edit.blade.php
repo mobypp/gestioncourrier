@@ -23,7 +23,7 @@
 		<div class="form-row">
 		  <div class="form-group  col-md-4 mb-3">
 			<label for="matricule">Matricule</label>
-			<input type="text" class="form-control" value="{{ $courrier->id }}" name ="matricule">
+			<input type="text" class="form-control" value="{{ $courrier->matricule }}" name ="matricule">
 		  </div>
 		  <div class="form-group  col-md-4 mb-3">
 			<label for="titre">Titre</label>

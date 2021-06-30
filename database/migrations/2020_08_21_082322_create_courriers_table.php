@@ -15,17 +15,17 @@ class CreateCourriersTable extends Migration
     {
         Schema::create('courriers', function (Blueprint $table) {
             $table->id();
-			$table->string('matricule');
-            $table->string('titre');
-			$table->unsignedBigInteger('organisme_id');
+			$table->string('matricule')->nullable();
+            $table->string('titre')->nullable();
+			$table->unsignedBigInteger('organisme_id')->nullable();
 
 			$table->foreign('organisme_id')
 				->references('id')
 				->on('organismes')
 				->onDelete('cascade');
 				
-			$table->string('objet');
-            $table->text('contenu');
+			$table->string('objet')->nullable();
+            $table->text('contenu')->nullable();
             $table->boolean('etat')->default('1');
             $table->timestamps();
         });

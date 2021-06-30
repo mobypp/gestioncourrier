@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\courrier;
+use App\Models\Courrier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +27,13 @@ class CourrierController extends Controller
      */
     public function create()
     {
-        return view('app.courrier.create');
+        
+        $courrier = new courrier();
+        $courrier->save();
+
+        $courrier = courrier::find($courrier->id);
+        return view('app.courrier.create', ['courrier' => $courrier]);
+        //return view('app.courrier.create');
     }
 
     /**
@@ -36,7 +42,7 @@ class CourrierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeN($id, Request $request)
     {
 		
         // $request->validate([
@@ -48,7 +54,8 @@ class CourrierController extends Controller
         // ]);
         // Courrier::create($request->all());
 
-        $courrier = new courrier();
+        //$courrier = new courrier();
+        $courrier = courrier::find($id);
         $courrier->matricule = $request->input('matricule');
         $courrier->titre = $request->input('titre');
         $courrier->organisme_id = $request->input('organisme_id');
@@ -60,7 +67,7 @@ class CourrierController extends Controller
         session()->flash('success', 'Le courrier a été bien enregistré');
 
         $courrier = courrier::find($courrier->id);
-        return view('app.file.create', ['courrier' => $courrier]);
+        return view('app.courrier.show', ['courrier' => $courrier]);
 
         // return redirect()->route('courrier.index')
         // ->with('success','Courrier created successfully.');
@@ -97,18 +104,18 @@ class CourrierController extends Controller
      */
     public function update(Request $request, Courrier $courrier)
     {
-        $request->validate([
-			'matricule' => 'required',
-            'titre' => 'required',
-			'destination' => 'required',
-			'objet' => 'required',
-			'contenu' => 'required',
-        ]);
-
-        $courrier->update($request->all());
+        $courrier = courrier::find($id);
+        $courrier->matricule = $request->input('matricule');
+        $courrier->titre = $request->input('titre');
+        $courrier->organisme_id = $request->input('organisme_id');
+        $courrier->objet = $request->input('objet');
+        $courrier->contenu = $request->input('contenu');
+      
+      
+        $courrier->save();
   
         $courrier = courrier::find($courrier->id);
-        return view('app.file.create', ['courrier' => $courrier]);
+        return view('app.courrier.show', ['courrier' => $courrier]);
     }
 
     /**

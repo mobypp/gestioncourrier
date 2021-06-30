@@ -50,11 +50,13 @@ Auth::routes(['register' => false]);
 // Courrier et organisme
 
 Route::resource('courrier', 'CourrierController');
-Route::resource('organisme', 'OrganismeController');
-Route::resource('file', 'FileController');
+Route::post('/create/courrier/{id}/','CourrierController@storeN')->name('courrier.storeN');
 
+Route::resource('organisme', 'OrganismeController');
+
+
+Route::resource('file', 'FileController');
 Route::get('/another_file/{id}/','FileController@AnotherFile')->name('file.anotherFile');
-Route::get('/final/{id}/','FileController@Continue')->name('file.final');
 
 
 

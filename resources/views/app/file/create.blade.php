@@ -1,11 +1,8 @@
-@extends('theme.admin')
+{{-- @extends('theme.admin')
 
-@section('main-content')
+@section('main-content') --}}
 
 
-<div class="card mt-5">
-
-    <div class="card-body">
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -15,7 +12,7 @@
             </ul>
         </div>
         @endif
-        <form method="post" enctype="multipart/form-data" action="{{ route('file.store') }} ">
+        <form id="fileForm" method="post" enctype="multipart/form-data" action="{{ route('file.store') }} ">
                 @csrf
 			  <div class="form-group" style="display:none">
 				  <select name="courrier_id" class="form-control">
@@ -23,25 +20,24 @@
 					</select>
 				</div>
 			  
-			<div class="form-group col-md-4 mb-3">
-				<div class="input-group mb-3">
-				  <div class="input-group-prepend">
-					<span class="input-group-text"><i class="fa fa-file-text-o"></i></span>
-				  </div>
-					  <div class="custom-file">
-						<input type="file" name="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
-						<label class="custom-file-label" for="customFileInput">Selectionner le fichier</label>
+			<div class="form-row">
+				<div class="form-group col-md-10 mb-3">
+					<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-file-text-o"></i></span>
+							</div>
+							<div class="custom-file">
+								<input type="file" name="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+								<label class="custom-file-label" for="customFileInput">Selectionner le fichier</label>
+							</div>
+						</div>
 					</div>
-				  </div>
-				  </div>
-            </div>
-
-			<div class="text-center">
-				<button type="submit" class="btn btn-primary btn-lg">Suivant</button>
+					<div class="form-group col-md-2 mb-3">
+						<button type="submit" class="btn btn-success" form="fileForm">Ajouter</button>
+					</div>
+				</div>	
 			</div>
         </form>
-    </div>
-</div>
 
 
 
@@ -53,4 +49,4 @@
 	})
   </script>
 
-@endsection
+{{-- @endsection --}}

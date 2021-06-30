@@ -42,9 +42,9 @@ class FileController extends Controller
 
         $courrier = courrier::find($file->courrier_id);
 
-        $files = DB::table('files')->paginate(100);
+        //$files = DB::table('files')->paginate(100);
 
-        return view('app.file.index', ['courrier' => $courrier, 'files' => $files]);
+        return view('app.courrier.create', ['courrier' => $courrier]);
     }
 
     public function AnotherFile($id)
